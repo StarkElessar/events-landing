@@ -5,6 +5,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="10.0.5" />
     <PackageReference Include="Vite.AspNetCore" Version="2.4.1" />
   </ItemGroup>
 
