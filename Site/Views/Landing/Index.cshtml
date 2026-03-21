@@ -1,22 +1,15 @@
+@using Site.Models
 @model LandingViewModel
 
 <div class="landing">
-	<header class="header">
-		<div class="container header__inner">
-			@if (!string.IsNullOrEmpty(Model.Event.EffectiveLogoUrl))
-			{
-				<img class="header__logo" src="@Model.Event.EffectiveLogoUrl" alt="@Model.Event.Transfer?.Name" />
-			}
-			else
-			{
-				<span class="header__brand">@Model.Event.Transfer?.Name</span>
-			}
-			<div class="header__contacts">
-				<a class="header__phone" href="tel:@Model.Event.ContactPhone">@Model.Event.ContactPhone</a>
-				<a class="header__email" href="mailto:@Model.Event.ContactEmail">@Model.Event.ContactEmail</a>
-			</div>
-		</div>
-	</header>
+	<partial name="~/Shared/Components/Header.cshtml"
+	         model="@(new Header
+	                {
+						Logo = Model.Event.EffectiveLogoUrl,
+						TransferName = Model.Event.Transfer?.Name,
+						ContactPhone = Model.Event.ContactPhone,
+						ContactEmail = Model.Event.ContactEmail
+	                })"/>
 
 	<main class="landing__content">
 		<section class="hero">
@@ -51,16 +44,15 @@
 				}
 			</div>
 		</section>
-	</main>
 
-	<footer class="footer">
-		<div class="container footer__inner">
-			<span>&copy; @DateTime.Now.Year @Model.Event.Transfer?.Name</span>
-			<div class="footer__contacts">
-				<a href="tel:@Model.Event.ContactPhone">@Model.Event.ContactPhone</a>
-				<a href="mailto:@Model.Event.ContactEmail">@Model.Event.ContactEmail</a>
-			</div>
-			<div class="footer__legal">@Model.Event.Transfer?.LegalAddress</div>
-		</div>
-	</footer>
+		<partial name="~/Shared/Components/Footer.cshtml"
+		         model="@(new Footer
+		                {
+							Logo = Model.Event.EffectiveLogoUrl,
+							TransferName = Model.Event.Transfer?.Name,
+							ContactPhone = Model.Event.ContactPhone,
+							ContactEmail = Model.Event.ContactEmail,
+							TransferLegalAddress = Model.Event.Transfer?.LegalAddress
+		                })"/>
+	</main>
 </div>

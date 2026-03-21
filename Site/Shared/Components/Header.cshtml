@@ -1,0 +1,18 @@
+@model Site.Models.Header
+
+<header class="header">
+	<div class="container header__inner">
+		@if (string.IsNullOrEmpty(Model.Logo))
+		{
+			<span class="header__brand">@Model.TransferName</span>
+		}
+		else
+		{
+			<img class="header__logo" src="@Model.Logo" alt="@Model.TransferName"/>
+		}
+		<div class="header__contacts">
+			<a class="header__phone" href="tel:@Model.ContactPhone">@Model.ContactPhone</a>
+			<a class="header__email" href="mailto:@Model.ContactEmail">@Model.ContactEmail</a>
+		</div>
+	</div>
+</header>

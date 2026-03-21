@@ -1,0 +1,12 @@
+@model Site.Models.Footer
+
+<footer class="footer">
+	<div class="container footer__inner">
+		<span>&copy; @DateTime.Now.Year @Model.TransferName</span>
+		<div class="footer__contacts">
+			<a href="tel:@Model.ContactPhone">@Model.ContactPhone</a>
+			<a href="mailto:@Model.ContactEmail">@Model.ContactEmail</a>
+		</div>
+		<div class="footer__legal">@Model.TransferLegalAddress</div>
+	</div>
+</footer>
