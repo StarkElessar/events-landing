@@ -1,0 +1,27 @@
+@model TransferDeleteViewModel
+@{
+    ViewData["Title"] = $"Удалить — {Model.Transfer.Name}";
+}
+
+<div class="admin-header">
+    <h1>Удалить трансфер</h1>
+</div>
+
+<div class="card">
+    <p style="margin-bottom: 1rem;">Вы уверены, что хотите удалить трансфер <strong>@Model.Transfer.Name</strong>?</p>
+    <p style="color: #c0392b; margin-bottom: 1.5rem;">Внимание: все события этого трансфера также будут удалены.</p>
+
+    <table style="margin-bottom: 1.5rem;">
+        <tr><th>Название</th><td>@Model.Transfer.Name</td></tr>
+        <tr><th>Slug</th><td>@Model.Transfer.Slug</td></tr>
+        <tr><th>Домен</th><td>@Model.Transfer.Domain</td></tr>
+    </table>
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <div style="display: flex; gap: 0.75rem;">
+            <button type="submit" class="admin-btn admin-btn_danger">Удалить</button>
+            <a class="admin-btn admin-btn_secondary" href="@Url.Action("Index", "Transfer")">Отмена</a>
+        </div>
+    </form>
+</div>

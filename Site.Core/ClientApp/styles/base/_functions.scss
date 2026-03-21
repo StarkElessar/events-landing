@@ -1,0 +1,13 @@
+@use "sass:math";
+
+// Converts px to rem (base: 16px)
+// Usage: padding: rem(16); → 1rem
+@function rem($px) {
+	@return math.div($px, 16) * 1rem;
+}
+
+// Converts px to em (base: 16px)
+// Usage: width: em(320); → 20em
+@function em($px) {
+	@return math.div($px, 16) * 1em;
+}

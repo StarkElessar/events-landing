@@ -1,0 +1,27 @@
+@model EventDeleteViewModel
+@{
+    ViewData["Title"] = $"Удалить — {Model.Event.TitlePage}";
+}
+
+<div class="admin-header">
+    <h1>Удалить событие</h1>
+</div>
+
+<div class="card">
+    <p style="margin-bottom: 1rem;">Вы уверены, что хотите удалить событие <strong>@Model.Event.TitlePage</strong>?</p>
+
+    <table style="margin-bottom: 1.5rem;">
+        <tr><th>Заголовок</th><td>@Model.Event.TitlePage</td></tr>
+        <tr><th>Slug</th><td>/@Model.Event.Slug</td></tr>
+        <tr><th>Трансфер</th><td>@Model.Event.Transfer?.Name</td></tr>
+        <tr><th>Статус</th><td>@(Model.Event.IsPublished ? "Опубликовано" : "Черновик")</td></tr>
+    </table>
+
+    <form method="post">
+        @Html.AntiForgeryToken()
+        <div style="display: flex; gap: 0.75rem;">
+            <button type="submit" class="admin-btn admin-btn_danger">Удалить</button>
+            <a class="admin-btn admin-btn_secondary" href="@Url.Action("Index", "Events")">Отмена</a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,97 @@
+@model TransferFormViewModel
+@{
+    ViewData["Title"] = "Новый трансфер";
+}
+
+<div class="admin-header">
+    <h1>Новый трансфер</h1>
+</div>
+
+<div class="card">
+    <form method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="form-row">
+            <div class="form-group">
+                <label asp-for="Transfer.Name">Название</label>
+                <input asp-for="Transfer.Name" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="Transfer.Slug">Slug</label>
+                <input asp-for="Transfer.Slug" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Transfer.Domain">Домен</label>
+            <input asp-for="Transfer.Domain" required placeholder="events.autobus.ru" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Transfer.LogoUrl">URL логотипа</label>
+            <input asp-for="Transfer.LogoUrl" placeholder="/uploads/logo.png" />
+        </div>
+
+        <h3>Цвета бренда</h3>
+        <div class="color-pair">
+            <div class="form-group">
+                <label asp-for="Transfer.BrandColorStart">Brand Start</label>
+                <input asp-for="Transfer.BrandColorStart" type="color" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Transfer.BrandColorEnd">Brand End</label>
+                <input asp-for="Transfer.BrandColorEnd" type="color" />
+            </div>
+        </div>
+
+        <h3>Цвета Primary</h3>
+        <div class="color-pair">
+            <div class="form-group">
+                <label asp-for="Transfer.PrimaryColorStart">Primary Start</label>
+                <input asp-for="Transfer.PrimaryColorStart" type="color" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Transfer.PrimaryColorEnd">Primary End</label>
+                <input asp-for="Transfer.PrimaryColorEnd" type="color" />
+            </div>
+        </div>
+
+        <h3>Контакты</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label asp-for="Transfer.Phone">Телефон</label>
+                <input asp-for="Transfer.Phone" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="Transfer.Email">Email</label>
+                <input asp-for="Transfer.Email" type="email" required />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Transfer.LegalAddress">Юридический адрес</label>
+            <input asp-for="Transfer.LegalAddress" required />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Transfer.TransportType">Тип транспорта</label>
+            <input asp-for="Transfer.TransportType" required />
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label asp-for="Transfer.INN">ИНН</label>
+                <input asp-for="Transfer.INN" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Transfer.OGRN">ОГРН</label>
+                <input asp-for="Transfer.OGRN" />
+            </div>
+        </div>
+
+        <div style="margin-top: 1.5rem; display: flex; gap: 0.75rem;">
+            <button type="submit" class="admin-btn admin-btn_primary">Создать</button>
+            <a class="admin-btn admin-btn_secondary" href="@Url.Action("Index", "Transfer")">Отмена</a>
+        </div>
+    </form>
+</div>

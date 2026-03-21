@@ -1,0 +1,33 @@
+@model BaseViewModel
+
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>@Model.Title</title>
+		@if (Model.MetaDescription is not null)
+		{
+			<meta name="description" content="@Model.MetaDescription" />
+		}
+		<style>
+	        :root {
+		        --font-family-body: 'Vela Sans', sans-serif;
+	            --brand-color-start: @Model.BrandColorStart;
+	            --brand-color-end: @Model.BrandColorEnd;
+	            --primary-color-start: @Model.PrimaryColorStart;
+	            --primary-color-end: @Model.PrimaryColorEnd;
+	            --text-color: #1a1a2e;
+	            --bg-color: #ffffff;
+	        }
+	    </style>
+		<link rel="stylesheet" vite-href="~/styles/main.scss" />
+		@await RenderSectionAsync("Head", required: false)
+	</head>
+	<body>
+		@RenderBody()
+
+		<script type="module" vite-src="~/scripts/main.ts"></script>
+		@await RenderSectionAsync("Scripts", required: false)
+	</body>
+</html>

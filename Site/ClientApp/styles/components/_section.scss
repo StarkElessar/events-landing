@@ -1,0 +1,13 @@
+@use "base/variables" as *;
+
+.section {
+	padding-block: $spacing-3xl;
+}
+
+.section__title {
+	margin-bottom: $spacing-xl;
+}
+
+.section_alt {
+	background-color: rgba(0, 0, 0, 0.02);
+}

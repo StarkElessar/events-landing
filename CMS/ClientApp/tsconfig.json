@@ -1,0 +1,12 @@
+{
+	"extends": "../../tsconfig.base.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@styles.core/*": ["../../Site.Core/ClientApp/styles/*"],
+			"@scripts.core/*": ["../../Site.Core/ClientApp/scripts/*"]
+		}
+	},
+	"include": ["**/*.ts"],
+	"exclude": ["node_modules"]
+}

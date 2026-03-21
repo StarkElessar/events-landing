@@ -1,0 +1,51 @@
+@using CMS.Infrastructure
+@using Microsoft.AspNetCore.Mvc.Controllers
+@using System.Reflection
+@using CMS.Models
+@inject Microsoft.AspNetCore.Mvc.Infrastructure.IActionDescriptorCollectionProvider ActionDescriptors
+
+@{
+	var navItems = ActionDescriptors.ActionDescriptors.Items
+	                                .OfType<ControllerActionDescriptor>()
+	                                .Select(a => (Descriptor: a, Nav: a.MethodInfo.GetCustomAttribute<AdminNavLinkAttribute>()))
+	                                .Where(x => x.Nav is not null)
+	                                .OrderBy(x => x.Nav!.Order)
+	                                .Select(x => new AdminNavItem
+	                                 {
+		                                 Href = Url.Action(x.Descriptor.ActionName, x.Descriptor.ControllerName),
+		                                 Label = x.Nav!.Label
+	                                 })
+	                                .ToList();
+}
+
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>@ViewData["Title"] — Админка</title>
+		<link rel="stylesheet" vite-href="~/styles/main.scss"/>
+		@await RenderSectionAsync("Head", required: false)
+	</head>
+	<body>
+		<div class="admin-layout">
+			<aside class="admin-sidebar">
+				<div class="admin-sidebar__title">Админка</div>
+				<ul class="admin-nav">
+					@foreach (var item in navItems)
+					{
+						<li>
+							<a class="admin-nav__link" href="@item.Href">@item.Label</a>
+						</li>
+					}
+				</ul>
+			</aside>
+			<main class="admin-main">
+				@RenderBody()
+			</main>
+		</div>
+
+		<script type="module" vite-src="~/scripts/main.ts"></script>
+		@await RenderSectionAsync("Scripts", required: false)
+	</body>
+</html>

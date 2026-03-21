@@ -1,0 +1,42 @@
+@use "base/variables" as *;
+
+.header {
+	position: sticky;
+	top: 0;
+	z-index: $z-header;
+	background-color: var(--bg-color);
+	border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+	padding-block: $spacing-md;
+}
+
+.header__inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.header__logo {
+	height: 40px;
+	width: auto;
+}
+
+.header__contacts {
+	display: flex;
+	align-items: center;
+	gap: $spacing-lg;
+	font-size: 0.875rem;
+}
+
+.header__phone {
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.header__email {
+	opacity: 0.8;
+}
+
+.header_scrolled {
+	border-bottom-color: transparent;
+	box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+}

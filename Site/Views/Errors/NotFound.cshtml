@@ -1,0 +1,26 @@
+@model ErrorViewModel
+
+@{
+    Layout = "~/Shared/Layouts/_NotFound.cshtml";
+}
+
+<div class="not-found">
+	<div class="not-found__stars" aria-hidden="true">
+		@for (var i = 0; i < 20; i++)
+		{
+			<span class="not-found__star"></span>
+		}
+	</div>
+
+	<div class="not-found__content">
+		<div class="not-found__glitch" data-text="404" aria-label="404">404</div>
+		<p class="not-found__title">Мероприятие улетело в космос</p>
+		<p class="not-found__subtitle">
+			Такого события на этом рейсе не&nbsp;существует. Возможно, оно уже прошло,
+			или вы&nbsp;попали не&nbsp;туда.
+		</p>
+		<a class="not-found__btn" href="@Url.Action("Index", "Home")">← На главную</a>
+	</div>
+
+	<div class="not-found__rocket" aria-hidden="true">🚀</div>
+</div>

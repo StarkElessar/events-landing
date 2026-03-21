@@ -1,0 +1,66 @@
+@model LandingViewModel
+
+<div class="landing">
+	<header class="header">
+		<div class="container header__inner">
+			@if (!string.IsNullOrEmpty(Model.Event.EffectiveLogoUrl))
+			{
+				<img class="header__logo" src="@Model.Event.EffectiveLogoUrl" alt="@Model.Event.Transfer?.Name" />
+			}
+			else
+			{
+				<span class="header__brand">@Model.Event.Transfer?.Name</span>
+			}
+			<div class="header__contacts">
+				<a class="header__phone" href="tel:@Model.Event.ContactPhone">@Model.Event.ContactPhone</a>
+				<a class="header__email" href="mailto:@Model.Event.ContactEmail">@Model.Event.ContactEmail</a>
+			</div>
+		</div>
+	</header>
+
+	<main class="landing__content">
+		<section class="hero">
+			<div class="container hero__inner">
+				<h1 class="hero__title">@Model.Event.TitlePage</h1>
+				<p class="hero__description">@Model.Event.Description</p>
+				<a class="btn btn_primary" href="#contacts">Заказать трансфер</a>
+			</div>
+		</section>
+
+		<section class="section" id="about">
+			<div class="container">
+				<h2 class="section__title">О трансфере</h2>
+				<p>Тип транспорта: @Model.Event.Transfer?.TransportType</p>
+				<p>Перевозчик: @Model.Event.Transfer?.Name</p>
+			</div>
+		</section>
+
+		<section class="section section_alt" id="contacts">
+			<div class="container">
+				<h2 class="section__title">Контакты</h2>
+				<p>Телефон: <a href="tel:@Model.Event.ContactPhone">@Model.Event.ContactPhone</a></p>
+				<p>Email: <a href="mailto:@Model.Event.ContactEmail">@Model.Event.ContactEmail</a></p>
+				<p>Юридический адрес: @Model.Event.Transfer?.LegalAddress</p>
+				@if (!string.IsNullOrEmpty(Model.Event.Transfer?.INN))
+				{
+					<p>ИНН: @Model.Event.Transfer.INN</p>
+				}
+				@if (!string.IsNullOrEmpty(Model.Event.Transfer?.OGRN))
+				{
+					<p>ОГРН: @Model.Event.Transfer.OGRN</p>
+				}
+			</div>
+		</section>
+	</main>
+
+	<footer class="footer">
+		<div class="container footer__inner">
+			<span>&copy; @DateTime.Now.Year @Model.Event.Transfer?.Name</span>
+			<div class="footer__contacts">
+				<a href="tel:@Model.Event.ContactPhone">@Model.Event.ContactPhone</a>
+				<a href="mailto:@Model.Event.ContactEmail">@Model.Event.ContactEmail</a>
+			</div>
+			<div class="footer__legal">@Model.Event.Transfer?.LegalAddress</div>
+		</div>
+	</footer>
+</div>

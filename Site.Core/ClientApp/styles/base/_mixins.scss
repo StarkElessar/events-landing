@@ -1,0 +1,25 @@
+@use "functions" as *;
+
+// Mobile-first min-width breakpoint
+// Usage: @include media-mn(768) { ... }
+@mixin media-mn($px) {
+	@media (min-width: #{em($px)}) {
+		@content;
+	}
+}
+
+// Max-width breakpoint (use sparingly, prefer media-mn)
+// Usage: @include media-mx(1279) { ... }
+@mixin media-mx($px) {
+	@media (max-width: #{em($px)}) {
+		@content;
+	}
+}
+
+// Range: min-width AND max-width
+// Usage: @include media-mn-mx(768, 1279) { ... }
+@mixin media-mn-mx($min, $max) {
+	@media (min-width: #{em($min)}) and (max-width: #{em($max)}) {
+		@content;
+	}
+}

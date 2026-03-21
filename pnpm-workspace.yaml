@@ -1,0 +1,4 @@
+packages:
+  - "Site.Core/ClientApp"
+  - "CMS/ClientApp"
+  - "Site/ClientApp"

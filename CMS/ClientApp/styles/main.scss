@@ -1,0 +1,5 @@
+// CMS admin styles are defined inline in Views/Admin/_Layout.cshtml.
+// This entry is reserved for future custom admin SCSS.
+@use "@styles.core/base/reset";
+@use "@styles.core/base/typography";
+@use "config/base";

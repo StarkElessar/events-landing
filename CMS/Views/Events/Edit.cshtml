@@ -1,0 +1,106 @@
+@model EventFormViewModel
+@{
+    ViewData["Title"] = $"Редактирование — {Model.Event.TitlePage}";
+}
+
+<div class="admin-header">
+	<h1>Редактировать: @Model.Event.TitlePage</h1>
+	@{
+		var landingHost = Model.SiteBaseUrl ?? $"https://{Model.Event.Transfer?.Domain}";
+	}
+	<a class="admin-btn admin-btn_secondary" href="@landingHost/@Model.Event.Slug" target="_blank" rel="noopener">Открыть лендинг ↗</a>
+</div>
+
+<div class="card">
+		<form method="post">
+			@Html.AntiForgeryToken()
+			<input type="hidden" asp-for="Event.Id" />
+			<input type="hidden" asp-for="Event.CreatedAt" />
+
+			<div class="form-group">
+				<label asp-for="Event.TransferId">Трансфер</label>
+				<select asp-for="Event.TransferId" required>
+					@foreach (var t in Model.Transfers)
+					{
+						<option value="@t.Id">@t.Name (@t.Domain)</option>
+					}
+				</select>
+			</div>
+
+			<div class="form-row">
+				<div class="form-group">
+					<label asp-for="Event.Slug">Slug (URL)</label>
+					<input asp-for="Event.Slug" required />
+				</div>
+				<div class="form-group">
+					<label asp-for="Event.TitlePage">Заголовок страницы (h1)</label>
+					<input asp-for="Event.TitlePage" required />
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="Event.Title">SEO Title</label>
+				<input asp-for="Event.Title" required />
+			</div>
+
+			<div class="form-group">
+				<label asp-for="Event.Description">SEO Description</label>
+				<textarea asp-for="Event.Description" required></textarea>
+			</div>
+
+			<h3 style="margin: 1.5rem 0 0.75rem;">Переопределение дизайна <small style="font-weight: 400; color: #999;">(оставьте пустым для наследования от трансфера)</small></h3>
+
+			<div class="form-group">
+				<label asp-for="Event.LogoUrl">URL логотипа</label>
+				<input asp-for="Event.LogoUrl" placeholder="Оставьте пустым для наследования" />
+			</div>
+
+			<div class="color-pair">
+				<div class="form-group">
+					<label asp-for="Event.BrandColorStart">Brand Start</label>
+					<input asp-for="Event.BrandColorStart" type="color" />
+				</div>
+				<div class="form-group">
+					<label asp-for="Event.BrandColorEnd">Brand End</label>
+					<input asp-for="Event.BrandColorEnd" type="color" />
+				</div>
+				<div class="form-group" style="padding-top: 1.5rem;">
+					<label><input type="checkbox" id="clearBrandColors" @(Model.Event.BrandColorStart == null ? "checked" : "") /> Наследовать от трансфера</label>
+				</div>
+			</div>
+
+			<div class="color-pair">
+				<div class="form-group">
+					<label asp-for="Event.PrimaryColorStart">Primary Start</label>
+					<input asp-for="Event.PrimaryColorStart" type="color" />
+				</div>
+				<div class="form-group">
+					<label asp-for="Event.PrimaryColorEnd">Primary End</label>
+					<input asp-for="Event.PrimaryColorEnd" type="color" />
+				</div>
+				<div class="form-group" style="padding-top: 1.5rem;">
+					<label><input type="checkbox" id="clearPrimaryColors" @(Model.Event.PrimaryColorStart == null ? "checked" : "") /> Наследовать от трансфера</label>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label>
+					<input asp-for="Event.IsPublished" type="checkbox" />
+					Опубликовано
+				</label>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="Event.IsDefault">По умолчанию</label>
+				<select asp-for="Event.IsDefault">
+					<option value="false">Нет</option>
+					<option value="true">Да</option>
+				</select>
+			</div>
+
+			<div style="margin-top: 1.5rem; display: flex; gap: 0.75rem;">
+				<button type="submit" class="admin-btn admin-btn_primary">Сохранить</button>
+				<a class="admin-btn admin-btn_secondary" href="@Url.Action("Index", "Events")">Отмена</a>
+			</div>
+		</form>
+	</div>

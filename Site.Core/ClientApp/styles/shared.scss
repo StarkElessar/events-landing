@@ -1,0 +1,5 @@
+// Shared base styles — imported by Site and CMS project SCSS entry points
+// Usage in project: @use "@core-styles/base";
+@forward "base/reset";
+@forward "base/variables";
+@forward "base/typography";
