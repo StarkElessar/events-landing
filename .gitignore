@@ -1,5 +1,4 @@
 **/bin/
-**/bin\Debug/
 obj/
 node_modules/
 **/wwwroot/dist/
