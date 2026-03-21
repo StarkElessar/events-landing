@@ -26,7 +26,7 @@ export function createBaseConfig(props: BaseConfigProps): UserConfig {
 			strictPort: true,
 			port: props.port,
 			hmr: {
-				clientPort: props.port
+				clientPort: props.port,
 			},
 		},
 	};
