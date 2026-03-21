@@ -4,7 +4,9 @@ using Vite.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllersWithViews();
+var mvcBuilder = builder.Services.AddControllersWithViews();
+if (builder.Environment.IsDevelopment())
+    mvcBuilder.AddRazorRuntimeCompilation();
 
 var cmsApiBaseUrl = builder.Configuration["CmsApiBaseUrl"]
     ?? throw new InvalidOperationException("CmsApiBaseUrl is not configured.");
