@@ -17,5 +17,6 @@ obj/
 .vs/
 .idea/
 *.user
+.playwright-mcp
 
 PLAN.md
