@@ -1,0 +1,36 @@
+{
+	"printWidth": 140,
+	"useTabs": true,
+	"tabWidth": 4,
+	"semi": true,
+	"singleQuote": false,
+	"trailingComma": "all",
+	"overrides": [
+		{
+			"files": ["*.json", "*.jsonc"],
+			"options": {
+				"useTabs": true,
+				"tabWidth": 4
+			}
+		},
+		{
+			"files": ["*.ts", "*.js", "*.mts", "*.mjs"],
+			"options": {
+				"singleQuote": true
+			}
+		},
+		{
+			"files": ["*.css", "*.scss"],
+			"options": {
+				"singleQuote": false
+			}
+		},
+		{
+			"files": ["*.yaml", "*.yml", "*.csproj", "*.props", "*.targets"],
+			"options": {
+				"useTabs": false,
+				"tabWidth": 2
+			}
+		}
+	]
+}

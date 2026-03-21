@@ -1,0 +1,60 @@
+# EditorConfig: https://editorconfig.org
+root = true
+
+# ─── Defaults ───────────────────────────────────────────────────────────────────
+[*]
+charset = utf-8
+end_of_line = lf
+indent_style = tab
+indent_size = 4
+tab_width = 4
+max_line_length = 140
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+# ─── C# ────────────────────────────────────────────────────────────────────────
+[*.cs]
+indent_style = tab
+indent_size = 4
+tab_width = 4
+
+# ─── Razor ──────────────────────────────────────────────────────────────────────
+[*.cshtml]
+indent_style = tab
+indent_size = 4
+tab_width = 4
+
+# ─── TypeScript / JavaScript ────────────────────────────────────────────────────
+[*.{ts,js,mts,mjs,cts,cjs}]
+indent_style = tab
+indent_size = 4
+tab_width = 4
+quote_type = single
+
+# ─── CSS / SCSS ─────────────────────────────────────────────────────────────────
+[*.{css,scss}]
+indent_style = tab
+indent_size = 4
+tab_width = 4
+quote_type = double
+
+# ─── JSON ───────────────────────────────────────────────────────────────────────
+[*.json]
+indent_style = tab
+indent_size = 4
+tab_width = 4
+
+# ─── XML / csproj / sln ────────────────────────────────────────────────────────
+[*.{csproj,props,targets}]
+indent_style = space
+indent_size = 2
+
+# ─── Markdown ───────────────────────────────────────────────────────────────────
+[*.md]
+trim_trailing_whitespace = false
+
+# ─── YAML ───────────────────────────────────────────────────────────────────────
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+tab_width = 2
