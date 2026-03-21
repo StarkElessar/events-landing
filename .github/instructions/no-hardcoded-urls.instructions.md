@@ -1,5 +1,5 @@
 ---
-applyTo: '**/*.cshtml,**/*.cs,**/*.ts'
+applyTo: "**/*.cshtml,**/*.cs,**/*.ts"
 ---
 
 # Запрет хардкода URL
@@ -47,18 +47,18 @@ return RedirectToAction(nameof(Index));
 
 ```ts
 // НЕЛЬЗЯ
-fetch("/admin/events")
+fetch("/admin/events");
 
 // НУЖНО
-fetch(window.__ROUTES__.eventsIndex)
+fetch(window.__ROUTES__.eventsIndex);
 ```
 
 Объявление типа:
 
 ```ts
 declare global {
-    interface Window {
-        __ROUTES__: Record<string, string>;
-    }
+	interface Window {
+		__ROUTES__: Record<string, string>;
+	}
 }
 ```

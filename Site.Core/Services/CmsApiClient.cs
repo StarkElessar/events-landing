@@ -104,4 +104,18 @@ public class CmsApiClient
         var response = await _http.DeleteAsync(string.Format(Routes.Event, id));
         response.EnsureSuccessStatusCode();
     }
+
+    public async Task<string> UploadFileAsync(Stream fileStream, string fileName)
+    {
+        using var content = new MultipartFormDataContent();
+        content.Add(new StreamContent(fileStream), "file", fileName);
+
+        var response = await _http.PostAsync("api/uploads", content);
+        response.EnsureSuccessStatusCode();
+
+        var result = await response.Content.ReadFromJsonAsync<UploadResult>();
+        return result!.Path;
+    }
+
+    private record UploadResult(string Path);
 }

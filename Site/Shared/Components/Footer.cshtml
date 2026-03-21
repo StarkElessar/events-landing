@@ -2,6 +2,10 @@
 
 <footer class="footer">
 	<div class="container footer__inner">
+		@if (!string.IsNullOrEmpty(Model.BottomLogo))
+		{
+			<img class="footer__logo" src="@Model.BottomLogo" alt="@Model.TransferName" />
+		}
 		<span>&copy; @DateTime.Now.Year @Model.TransferName</span>
 		<div class="footer__contacts">
 			<a href="tel:@Model.ContactPhone">@Model.ContactPhone</a>

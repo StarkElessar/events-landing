@@ -87,7 +87,8 @@ public class EventsController : ControllerBase
         existing.Title = input.Title;
         existing.Description = input.Description;
         existing.TitlePage = input.TitlePage;
-        existing.LogoUrl = input.LogoUrl;
+        existing.TopLogoUrl = input.TopLogoUrl;
+        existing.BottomLogoUrl = input.BottomLogoUrl;
         existing.BrandColorStart = input.BrandColorStart;
         existing.BrandColorEnd = input.BrandColorEnd;
         existing.PrimaryColorStart = input.PrimaryColorStart;

@@ -15,32 +15,81 @@ $btn-bg: #ff3cac;
 $btn-bg-hover: #e02090;
 
 @keyframes twinkle {
-	0%, 100% { opacity: 1; transform: scale(1); }
-	50%       { opacity: 0.3; transform: scale(0.6); }
+	0%,
+	100% {
+		opacity: 1;
+		transform: scale(1);
+	}
+	50% {
+		opacity: 0.3;
+		transform: scale(0.6);
+	}
 }
 
 @keyframes drift {
-	0%   { transform: translateY(0) rotate(-20deg); }
-	50%  { transform: translateY(-30px) rotate(10deg); }
-	100% { transform: translateY(0) rotate(-20deg); }
+	0% {
+		transform: translateY(0) rotate(-20deg);
+	}
+	50% {
+		transform: translateY(-30px) rotate(10deg);
+	}
+	100% {
+		transform: translateY(0) rotate(-20deg);
+	}
 }
 
 @keyframes glitch-clip-1 {
-	0%   { clip-path: inset(20% 0 60% 0); transform: translate(-4px, 0); }
-	20%  { clip-path: inset(50% 0 20% 0); transform: translate(4px, 0); }
-	40%  { clip-path: inset(10% 0 80% 0); transform: translate(-2px, 0); }
-	60%  { clip-path: inset(70% 0 5%  0); transform: translate(3px, 0); }
-	80%  { clip-path: inset(35% 0 45% 0); transform: translate(-3px, 0); }
-	100% { clip-path: inset(20% 0 60% 0); transform: translate(0, 0); }
+	0% {
+		clip-path: inset(20% 0 60% 0);
+		transform: translate(-4px, 0);
+	}
+	20% {
+		clip-path: inset(50% 0 20% 0);
+		transform: translate(4px, 0);
+	}
+	40% {
+		clip-path: inset(10% 0 80% 0);
+		transform: translate(-2px, 0);
+	}
+	60% {
+		clip-path: inset(70% 0 5% 0);
+		transform: translate(3px, 0);
+	}
+	80% {
+		clip-path: inset(35% 0 45% 0);
+		transform: translate(-3px, 0);
+	}
+	100% {
+		clip-path: inset(20% 0 60% 0);
+		transform: translate(0, 0);
+	}
 }
 
 @keyframes glitch-clip-2 {
-	0%   { clip-path: inset(60% 0 10% 0); transform: translate(4px, 0); }
-	20%  { clip-path: inset(10% 0 70% 0); transform: translate(-4px, 0); }
-	40%  { clip-path: inset(80% 0 5%  0); transform: translate(2px, 0); }
-	60%  { clip-path: inset(5%  0 80% 0); transform: translate(-2px, 0); }
-	80%  { clip-path: inset(45% 0 25% 0); transform: translate(4px, 0); }
-	100% { clip-path: inset(60% 0 10% 0); transform: translate(0, 0); }
+	0% {
+		clip-path: inset(60% 0 10% 0);
+		transform: translate(4px, 0);
+	}
+	20% {
+		clip-path: inset(10% 0 70% 0);
+		transform: translate(-4px, 0);
+	}
+	40% {
+		clip-path: inset(80% 0 5% 0);
+		transform: translate(2px, 0);
+	}
+	60% {
+		clip-path: inset(5% 0 80% 0);
+		transform: translate(-2px, 0);
+	}
+	80% {
+		clip-path: inset(45% 0 25% 0);
+		transform: translate(4px, 0);
+	}
+	100% {
+		clip-path: inset(60% 0 10% 0);
+		transform: translate(0, 0);
+	}
 }
 
 // ---- Layout ----
@@ -74,9 +123,9 @@ $btn-bg-hover: #e02090;
 
 	@for $i from 1 through 20 {
 		&:nth-child(#{$i}) {
-			top:  math.random(100) * 1%;
+			top: math.random(100) * 1%;
 			left: math.random(100) * 1%;
-			width:  (math.random(3)) * 1px;
+			width: (math.random(3)) * 1px;
 			height: (math.random(3)) * 1px;
 			animation-delay: math.random(4000) * 1ms;
 			animation-duration: (2 + math.random(3)) * 1s;
@@ -156,7 +205,9 @@ $btn-bg-hover: #e02090;
 	font-weight: 600;
 	text-decoration: none;
 	border-radius: 100px;
-	transition: background 200ms ease, transform 200ms ease;
+	transition:
+		background 200ms ease,
+		transform 200ms ease;
 
 	&:hover {
 		background: $btn-bg-hover;

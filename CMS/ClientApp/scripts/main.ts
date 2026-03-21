@@ -1,3 +1,5 @@
+import './shared/file-upload';
+
 function initColorToggle(checkboxId: string, startName: string, endName: string): void {
 	const cb = document.getElementById(checkboxId) as HTMLInputElement | null;
 	if (!cb) return;
@@ -14,8 +16,7 @@ function initColorToggle(checkboxId: string, startName: string, endName: string)
 			end.type = 'text';
 			start.disabled = true;
 			end.disabled = true;
-		} 
-		else {
+		} else {
 			start.disabled = false;
 			end.disabled = false;
 			start.type = 'color';

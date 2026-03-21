@@ -5,7 +5,7 @@
 	<partial name="~/Shared/Components/Header.cshtml"
 	         model="@(new Header
 	                {
-						Logo = Model.Event.EffectiveLogoUrl,
+						Logo = Model.Event.TopLogoUrl,
 						TransferName = Model.Event.Transfer?.Name,
 						ContactPhone = Model.Event.ContactPhone,
 						ContactEmail = Model.Event.ContactEmail
@@ -48,7 +48,8 @@
 		<partial name="~/Shared/Components/Footer.cshtml"
 		         model="@(new Footer
 		                {
-							Logo = Model.Event.EffectiveLogoUrl,
+							Logo = Model.Event.TopLogoUrl,
+							BottomLogo = Model.Event.BottomLogoUrl,
 							TransferName = Model.Event.Transfer?.Name,
 							ContactPhone = Model.Event.ContactPhone,
 							ContactEmail = Model.Event.ContactEmail,

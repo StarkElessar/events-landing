@@ -1,4 +1,5 @@
 @model EventFormViewModel
+
 @{
     ViewData["Title"] = $"Редактирование — {Model.Event.TitlePage}";
 }
@@ -50,9 +51,11 @@
 
 			<h3 style="margin: 1.5rem 0 0.75rem;">Переопределение дизайна <small style="font-weight: 400; color: #999;">(оставьте пустым для наследования от трансфера)</small></h3>
 
-			<div class="form-group">
-				<label asp-for="Event.LogoUrl">URL логотипа</label>
-				<input asp-for="Event.LogoUrl" placeholder="Оставьте пустым для наследования" />
+			<div class="form-row">
+				<partial name="~/Shared/UI/FileUpload.cshtml"
+				         model="@(new FileUploadModel { FieldName = "Event.TopLogoUrl", Label = "Верхнее лого (шапка)", CurrentUrl = Model.Event.TopLogoUrl })" />
+				<partial name="~/Shared/UI/FileUpload.cshtml"
+				         model="@(new FileUploadModel { FieldName = "Event.BottomLogoUrl", Label = "Нижнее лого (подвал)", CurrentUrl = Model.Event.BottomLogoUrl })" />
 			</div>
 
 			<div class="color-pair">
@@ -104,3 +107,10 @@
 			</div>
 		</form>
 	</div>
+
+@section Scripts
+{
+	<script>
+		window.__ROUTES__.uploadEndpoint = "@Url.Action("Upload", "Uploads")";
+	</script>
+}

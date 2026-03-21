@@ -1,5 +1,5 @@
 ---
-applyTo: '**/*.scss'
+applyTo: "**/*.scss"
 ---
 
 # Адаптив — строго Mobile First
@@ -9,20 +9,26 @@ applyTo: '**/*.scss'
 ## Правила
 
 **НЕЛЬЗЯ** — использовать `max-width` как основной способ адаптации:
+
 ```scss
 // НЕЛЬЗЯ
 .block {
-  display: flex;
-  @include media-mx(768) { display: block; }
+	display: flex;
+	@include media-mx(768) {
+		display: block;
+	}
 }
 ```
 
 **НУЖНО** — базовые стили для мобильных, расширения для десктопа:
+
 ```scss
 // НУЖНО
 .block {
-  display: block;
-  @include media-mn(768) { display: flex; }
+	display: block;
+	@include media-mn(768) {
+		display: flex;
+	}
 }
 ```
 
@@ -33,25 +39,25 @@ applyTo: '**/*.scss'
 
 Аргумент — всегда **число в пикселях** (без единицы). Внутри миксина оно автоматически переводится в `em`.
 
-| Миксин | Медиазапрос | Применение |
-|--------|-------------|------------|
-| `media-mn($px)` | `min-width` | Основной — mobile-first расширение |
-| `media-mx($px)` | `max-width` | Исключение — edge cases |
-| `media-mn-mx($min, $max)` | диапазон | Точечные диапазоны |
+| Миксин                    | Медиазапрос | Применение                         |
+| ------------------------- | ----------- | ---------------------------------- |
+| `media-mn($px)`           | `min-width` | Основной — mobile-first расширение |
+| `media-mx($px)`           | `max-width` | Исключение — edge cases            |
+| `media-mn-mx($min, $max)` | диапазон    | Точечные диапазоны                 |
 
 ```scss
 @use "@styles.core/base/mixins" as *;
 
 .card {
-  padding: 1rem;
+	padding: 1rem;
 
-  @include media-mn(768) {
-    padding: 1.5rem;
-  }
+	@include media-mn(768) {
+		padding: 1.5rem;
+	}
 
-  @include media-mn(1024) {
-    padding: 2rem;
-  }
+	@include media-mn(1024) {
+		padding: 2rem;
+	}
 }
 ```
 

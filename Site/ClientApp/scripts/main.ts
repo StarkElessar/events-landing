@@ -14,9 +14,5 @@ document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
 // Header elevation on scroll
 const header = document.querySelector<HTMLElement>('.header');
 if (header) {
-	window.addEventListener(
-		'scroll',
-		() => header.classList.toggle('header_scrolled', window.scrollY > 0),
-		{ passive: true },
-	);
+	window.addEventListener('scroll', () => header.classList.toggle('header_scrolled', window.scrollY > 0), { passive: true });
 }

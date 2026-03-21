@@ -110,6 +110,7 @@ public class EventsController(CmsApiClient api, IConfiguration config) : Control
         if (string.IsNullOrWhiteSpace(ev.BrandColorEnd)) ev.BrandColorEnd = null;
         if (string.IsNullOrWhiteSpace(ev.PrimaryColorStart)) ev.PrimaryColorStart = null;
         if (string.IsNullOrWhiteSpace(ev.PrimaryColorEnd)) ev.PrimaryColorEnd = null;
-        if (string.IsNullOrWhiteSpace(ev.LogoUrl)) ev.LogoUrl = null;
+        if (string.IsNullOrWhiteSpace(ev.TopLogoUrl)) ev.TopLogoUrl = null;
+        if (string.IsNullOrWhiteSpace(ev.BottomLogoUrl)) ev.BottomLogoUrl = null;
     }
 }

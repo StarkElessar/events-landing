@@ -1,0 +1,29 @@
+@model CMS.Models.FileUploadModel
+
+<div class="file-upload" data-upload-field="@Model.FieldName">
+	<label class="file-upload__label">@Model.Label</label>
+	<div class="file-upload__zone" role="button" tabindex="0" aria-label="@Model.Label">
+		@if (!string.IsNullOrEmpty(Model.CurrentUrl))
+		{
+			<div class="file-upload__preview">
+				<img class="file-upload__img" src="@Model.CurrentUrl" alt="@Model.Label" />
+			</div>
+		}
+		else
+		{
+			<div class="file-upload__placeholder">
+				<span class="file-upload__icon">↑</span>
+				<span>Перетащите файл или нажмите для выбора</span>
+				<small>JPG, PNG, SVG, WebP — до 5 МБ</small>
+			</div>
+		}
+	</div>
+	<input class="file-upload__input" type="file" accept=".jpg,.jpeg,.png,.svg,.webp" />
+	<input class="file-upload__url" type="hidden" name="@Model.FieldName" value="@Model.CurrentUrl" />
+	<div class="file-upload__actions">
+		<button type="button" class="file-upload__remove @(string.IsNullOrEmpty(Model.CurrentUrl) ? "file-upload__remove_hidden" : "")">
+			Удалить
+		</button>
+	</div>
+	<div class="file-upload__error" hidden></div>
+</div>
