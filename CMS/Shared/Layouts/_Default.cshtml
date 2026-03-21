@@ -45,6 +45,11 @@
 			</main>
 		</div>
 
+		<script>
+	        window.__ROUTES__ = {
+		        uploadEndpoint: "@Url.Action("Upload", "Uploads")",
+	        }
+	    </script>
 		<script type="module" vite-src="~/scripts/main.ts"></script>
 		@await RenderSectionAsync("Scripts", required: false)
 	</body>
