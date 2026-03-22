@@ -1,0 +1,41 @@
+.input {
+	margin-bottom: 1rem;
+
+	&__label {
+		display: block;
+		margin-bottom: 0.25rem;
+		font-weight: 500;
+		font-size: 0.875rem;
+	}
+
+	&__field {
+		width: 100%;
+		padding: 0.5rem 0.75rem;
+		border: 1px solid #ddd;
+		border-radius: 6px;
+		font-size: 0.875rem;
+		transition: border-color 150ms, box-shadow 150ms;
+
+		&:focus {
+			outline: none;
+			border-color: #1a73e8;
+			box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+		}
+
+		&_error {
+			border-color: #e53e3e;
+
+			&:focus {
+				border-color: #e53e3e;
+				box-shadow: 0 0 0 3px rgba(229, 62, 62, 0.15);
+			}
+		}
+	}
+
+	&__error {
+		display: block;
+		margin-top: 0.25rem;
+		font-size: 0.8rem;
+		color: #e53e3e;
+	}
+}

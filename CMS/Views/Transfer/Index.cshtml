@@ -4,34 +4,22 @@
     ViewData["Title"] = "Трансферы";
 }
 
-<div class="admin-header">
-    <h1>Трансферы</h1>
-    <a class="admin-btn admin-btn_primary" href="@Url.Action("Create", "Transfer")">+ Добавить трансфер</a>
-</div>
+<div id="app"></div>
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Название</th>
-            <th>Slug</th>
-            <th>Домен</th>
-            <th>Действия</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var t in Model.Transfers)
+<script>
+    window.__DATA__ = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(new
+    {
+        transfers = Model.Transfers.Select(t => new
         {
-            <tr>
-                <td>@t.Id</td>
-                <td>@t.Name</td>
-                <td>@t.Slug</td>
-                <td>@t.Domain</td>
-                <td class="actions">
-                    <a class="admin-btn admin-btn_secondary admin-btn_sm" href="@Url.Action("Edit", "Transfer", new { id = t.Id })">Изменить</a>
-                    <a class="admin-btn admin-btn_danger admin-btn_sm" href="@Url.Action("Delete", "Transfer", new { id = t.Id })">Удалить</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+            id = t.Id,
+            name = t.Name,
+            slug = t.Slug,
+            domain = t.Domain,
+        }),
+    }));
+</script>
+
+@section Scripts 
+{
+    <script type="module" vite-src="~/scripts/views/transfers-index/page.tsx"></script>
+}

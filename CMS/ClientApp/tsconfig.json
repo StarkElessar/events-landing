@@ -2,11 +2,13 @@
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
 		"baseUrl": ".",
+		"jsx": "react-jsx",
+		"skipLibCheck": true,
 		"paths": {
 			"@styles.core/*": ["../../Site.Core/ClientApp/styles/*"],
 			"@scripts.core/*": ["../../Site.Core/ClientApp/scripts/*"]
 		}
 	},
-	"include": ["**/*.ts"],
+	"include": ["**/*.ts", "**/*.tsx"],
 	"exclude": ["node_modules"]
 }

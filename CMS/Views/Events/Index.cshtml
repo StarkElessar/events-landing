@@ -5,77 +5,28 @@
     var displacedTitle = TempData["DisplacedEventTitle"] as string;
 }
 
-<div class="admin-header">
-    <h1>События</h1>
-    <a class="admin-btn admin-btn_primary" href="@Url.Action("Create", "Events")">+ Создать событие</a>
-</div>
+<div id="app"></div>
 
-<table>
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Трансфер</th>
-            <th>Название</th>
-            <th>Slug</th>
-            <th>По умолчанию</th>
-            <th>Бренд</th>
-            <th>Статус</th>
-            <th>Действия</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var e in Model.Events)
+<script>
+    window.__DATA__ = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(new
+    {
+        events = Model.Events.Select(e => new
         {
-            <tr>
-                <td>@e.Id</td>
-                <td>@e.Transfer?.Name</td>
-                <td>@e.TitlePage</td>
-                <td>
-                    @{
-                        var siteHost = Model.SiteBaseUrl ?? $"https://{e.Transfer?.Domain}";
-                    }
-                    <a href="@siteHost/@e.Slug" target="_blank" rel="noopener">/@e.Slug</a>
-                </td>
-                <td>
-                    @if (e.IsDefault)
-                    {
-                        <span class="badge badge_success">Да</span>
-                    }
-                    else
-                    {
-                        <span class="badge badge_muted">Нет</span>
-                    }
-                </td>
-                <td>
-                    <div style="width: 60px; height: 24px; border-radius: 4px; background: linear-gradient(135deg, @e.EffectiveBrandColorStart, @e.EffectiveBrandColorEnd);"></div>
-                </td>
-                <td>
-                    @if (e.IsPublished)
-                    {
-                        <span class="badge badge_success">Опубликовано</span>
-                    }
-                    else
-                    {
-                        <span class="badge badge_muted">Черновик</span>
-                    }
-                </td>
-                <td class="actions">
-                    <a class="admin-btn admin-btn_secondary admin-btn_sm" href="@Url.Action("Edit", "Events", new { id = e.Id })">Изменить</a>
-                    <a class="admin-btn admin-btn_danger admin-btn_sm" href="@Url.Action("Delete", "Events", new { id = e.Id })">Удалить</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+            id = e.Id,
+            titlePage = e.TitlePage,
+            slug = e.Slug,
+            isDefault = e.IsDefault,
+            isPublished = e.IsPublished,
+            transfer = e.Transfer != null ? new { id = e.Transfer.Id, name = e.Transfer.Name } : null,
+            effectiveBrandColorStart = e.EffectiveBrandColorStart,
+            effectiveBrandColorEnd = e.EffectiveBrandColorEnd,
+        }),
+        siteBaseUrl = Model.SiteBaseUrl,
+        displacedEventTitle = displacedTitle,
+    }));
+</script>
 
-@if (displacedTitle is not null)
+@section Scripts 
 {
-    <script>
-        window.__DISPLACED_EVENT__ = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(displacedTitle));
-    </script>
-}
-
-@section Scripts
-{
-    <script type="module" vite-src="~/scripts/views/events-index/page.ts"></script>
+    <script type="module" vite-src="~/scripts/views/events-index/page.tsx"></script>
 }

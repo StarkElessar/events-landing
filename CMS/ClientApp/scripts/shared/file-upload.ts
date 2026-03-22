@@ -1,11 +1,5 @@
 export {};
 
-declare global {
-	interface Window {
-		__ROUTES__: Record<string, string>;
-	}
-}
-
 function initFileUpload(container: HTMLElement): void {
 	const zone = container.querySelector<HTMLDivElement>('.file-upload__zone')!;
 	const fileInput = container.querySelector<HTMLInputElement>('.file-upload__input')!;

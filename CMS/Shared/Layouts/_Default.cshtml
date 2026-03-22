@@ -1,8 +1,8 @@
 @using CMS.Infrastructure
 @using Microsoft.AspNetCore.Mvc.Controllers
 @using System.Reflection
-@using CMS.Models
 @inject Microsoft.AspNetCore.Mvc.Infrastructure.IActionDescriptorCollectionProvider ActionDescriptors
+@inject Vite.AspNetCore.IViteDevServerStatus ViteDevServer
 
 @{
 	var navItems = ActionDescriptors.ActionDescriptors.Items
@@ -16,6 +16,10 @@
 		                                 Label = x.Nav!.Label
 	                                 })
 	                                .ToList();
+
+	string? reactRefreshUrl = ViteDevServer.IsEnabled
+		? $"{ViteDevServer.ServerUrlWithBasePath.TrimEnd('/')}/@react-refresh"
+		: null;
 }
 
 <!DOCTYPE html>
@@ -48,8 +52,32 @@
 		<script>
 	        window.__ROUTES__ = {
 		        uploadEndpoint: "@Url.Action("Upload", "Uploads")",
+		        events: {
+			        index: "@Url.Action("Index", "Events")",
+			        create: "@Url.Action("Create", "Events")",
+			        editTemplate: "@(Url.Action("Edit", "Events", new { id = 0 })!.Replace("0", "{id}"))",
+			        deleteTemplate: "@(Url.Action("Delete", "Events", new { id = 0 })!.Replace("0", "{id}"))",
+			        deleteConfirmedTemplate: "@(Url.Action("DeleteConfirmed", "Events", new { id = 0 })!.Replace("0", "{id}"))",
+		        },
+		        transfers: {
+			        index: "@Url.Action("Index", "Transfer")",
+			        create: "@Url.Action("Create", "Transfer")",
+			        editTemplate: "@(Url.Action("Edit", "Transfer", new { id = 0 })!.Replace("0", "{id}"))",
+			        deleteTemplate: "@(Url.Action("Delete", "Transfer", new { id = 0 })!.Replace("0", "{id}"))",
+			        deleteConfirmedTemplate: "@(Url.Action("DeleteConfirmed", "Transfer", new { id = 0 })!.Replace("0", "{id}"))",
+		        },
 	        }
 	    </script>
+		@if (reactRefreshUrl is not null)
+		{
+			<script type="module">
+	            import { injectIntoGlobalHook } from '@(reactRefreshUrl)'
+	            injectIntoGlobalHook(window)
+	            window.$RefreshReg$ = () => {}
+	            window.$RefreshSig$ = () => (type) => type
+	            window.__vite_plugin_react_preamble_installed__ = true
+	        </script>
+		}
 		<script type="module" vite-src="~/scripts/main.ts"></script>
 		@await RenderSectionAsync("Scripts", required: false)
 	</body>
