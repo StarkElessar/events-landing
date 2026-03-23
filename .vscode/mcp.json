@@ -1,0 +1,25 @@
+{
+  "inputs": [
+    {
+      "id": "figma-api-key",
+      "type": "promptString",
+      "description": "Figma Personal Access Token",
+      "password": true
+    }
+  ],
+  "servers": {
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    },
+    "figma": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["-y", "figma-developer-mcp@latest", "--stdio"],
+      "env": {
+        "FIGMA_API_KEY": "${input:figma-api-key}"
+      }
+    }
+  }
+}
