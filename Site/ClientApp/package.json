@@ -4,12 +4,19 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "vite build"
+		"build": "vite build",
+		"lint:scss": "stylelint '**/*.scss' --config .stylelintrc.json",
+		"format": "prettier --write '**/*.{js,ts,css,html,json,md}'"
 	},
 	"devDependencies": {
 		"@events-landing/core": "workspace:*",
 		"sass": "^1.98.0",
 		"typescript": "^5.9.3",
-		"vite": "^8.0.1"
+		"vite": "^8.0.1",
+		"stylelint": "^15.0.0",
+		"stylelint-config-standard-scss": "^2.0.0",
+		"stylelint-scss": "^4.0.0",
+    
+		"prettier": "^3.0.0"
 	}
 }
