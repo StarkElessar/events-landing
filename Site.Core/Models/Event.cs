@@ -13,10 +13,16 @@ public class Event
 
     // SEO
     public string Title { get; set; } = string.Empty;
+
     public string Description { get; set; } = string.Empty;
 
     // Page content
     public string TitlePage { get; set; } = string.Empty;
+
+    // Hero
+    public string? HeroImageUrl { get; set; }
+
+    public string? EventDates { get; set; }
 
     // Overridable design fields (null = inherit from Transfer)
     public string? TopLogoUrl { get; set; }
