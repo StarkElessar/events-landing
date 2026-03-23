@@ -6,6 +6,7 @@
 		"dev": "vite",
 		"build": "vite build",
 		"lint:scss": "stylelint '**/*.scss' --config .stylelintrc.json",
+		"lint:scss:fix": "stylelint '**/*.scss' --config .stylelintrc.json --fix",
 		"format": "prettier --write '**/*.{js,ts,css,html,json,md}'"
 	},
 	"devDependencies": {
