@@ -1,0 +1,30 @@
+@model LandingViewModel
+
+<section class="advantages">
+	<div class="container advantages__inner">
+
+		<div class="advantages__card">
+			<div class="advantages__card-content">
+				<h2 class="advantages__title">Почему выбирают трансфер @Model.Event.Transfer?.Name?</h2>
+				<ul class="advantages__list">
+					<li>Чистый и&nbsp;аккуратный салон в каждом транспортном средстве.</li>
+					<li>Подача и&nbsp;движение транспорта осуществляются строго по&nbsp;графику.</li>
+					<li>Профессиональное обслуживание на&nbsp;протяжении всех выставочных дней.</li>
+				</ul>
+			</div>
+			<a class="btn btn_primary" href="#booking">Оставить заявку</a>
+		</div>
+
+		<div class="advantages__aside">
+			<div class="advantages__image" aria-hidden="true"></div>
+			<div class="advantages__contact">
+				<p class="advantages__contact-text">Свяжитесь с&nbsp;нами для&nbsp;заказа транспорта</p>
+				<div class="advantages__contact-links">
+					<a class="advantages__contact-phone" href="tel:@Model.Event.ContactPhone">@Model.Event.ContactPhone</a>
+					<a class="advantages__contact-email" href="mailto:@Model.Event.ContactEmail">@Model.Event.ContactEmail</a>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section>

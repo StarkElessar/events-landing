@@ -1,0 +1,50 @@
+@use "base/variables" as *;
+@use "base/mixins" as *;
+
+.cta {
+	position: relative;
+	padding-block: 80px;
+	background-color: #1a1a2e;
+	background-size: cover;
+	background-position: center;
+	text-align: center;
+	color: #fff;
+
+	@include media-mn(768) {
+		padding-block: 120px;
+	}
+}
+
+.cta__content {
+	max-width: 760px;
+	margin-inline: auto;
+	padding-inline: $container-padding;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 24px;
+}
+
+.cta__title {
+	font-size: clamp(1.75rem, 4vw, 2.625rem);
+	font-weight: 600;
+	line-height: 1.25;
+	margin: 0;
+}
+
+.cta__text {
+	font-size: 1rem;
+	line-height: 1.5;
+	opacity: 0.9;
+	margin: 0;
+
+	@include media-mn(768) {
+		font-size: 1.25rem;
+	}
+}
+
+.cta__btn {
+	padding: 14px 44px;
+	border-radius: 6px;
+	font-size: 1rem;
+}

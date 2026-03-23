@@ -1,0 +1,65 @@
+@model LandingViewModel
+
+<section class="transfer" id="transfer">
+	<div class="container">
+
+		<div class="transfer__header">
+			<h2 class="transfer__title">Трансфер</h2>
+			@if (!string.IsNullOrEmpty(Model.Event.Transfer?.LogoUrl))
+			{
+				<img class="transfer__brand-logo" src="@Model.Event.Transfer.LogoUrl" alt="@Model.Event.Transfer.Name" />
+			}
+		</div>
+
+		<p class="transfer__description">
+			Компания @Model.Event.Transfer?.Name предоставляет в&nbsp;аренду пассажирский транспорт для&nbsp;участников
+			и&nbsp;гостей выставки, обеспечивая комфортные перевозки и&nbsp;надёжную логистику
+			на&nbsp;протяжении всего мероприятия.
+		</p>
+
+		<div class="transfer__features">
+
+			<div class="transfer-feature">
+				<div class="transfer-feature__icon" aria-hidden="true"></div>
+				<div class="transfer-feature__content">
+					<p class="transfer-feature__title">&gt;20 лет опыта в&nbsp;перевозках</p>
+					<p class="transfer-feature__text">Профессиональная организация трансфера для любых задач</p>
+				</div>
+			</div>
+
+			<div class="transfer-feature">
+				<div class="transfer-feature__icon" aria-hidden="true"></div>
+				<div class="transfer-feature__content">
+					<p class="transfer-feature__title">&gt;250 единиц транспорта</p>
+					<p class="transfer-feature__text">Собственный автопарк — работаем напрямую, без посредников и&nbsp;рисков</p>
+				</div>
+			</div>
+
+			<div class="transfer-feature">
+				<div class="transfer-feature__icon" aria-hidden="true"></div>
+				<div class="transfer-feature__content">
+					<p class="transfer-feature__title">Проверенная экспертиза</p>
+					<p class="transfer-feature__text">Опыт работы на&nbsp;форумах, выставках и&nbsp;событиях международного уровня</p>
+				</div>
+			</div>
+
+			<div class="transfer-feature">
+				<div class="transfer-feature__icon" aria-hidden="true"></div>
+				<div class="transfer-feature__content">
+					<p class="transfer-feature__title">Современное оснащение</p>
+					<p class="transfer-feature__text">Всё для вашего комфорта: USB-зарядки, микрофоны, телевизоры</p>
+				</div>
+			</div>
+
+			<div class="transfer-feature">
+				<div class="transfer-feature__icon" aria-hidden="true"></div>
+				<div class="transfer-feature__content">
+					<p class="transfer-feature__title">Диспетчерская поддержка 24/7</p>
+					<p class="transfer-feature__text">На связи в&nbsp;любое время суток на&nbsp;протяжении всего мероприятия</p>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</section>

@@ -1,0 +1,52 @@
+@use "base/variables" as *;
+@use "base/mixins" as *;
+
+.hero {
+	position: relative;
+	background-color: #111;
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+	padding-block: 80px 60px;
+
+	@include media-mn(1024) {
+		padding-block: 140px;
+	}
+}
+
+.hero__content {
+	max-width: 600px;
+}
+
+.hero__meta {
+	display: block;
+	font-weight: 600;
+	font-size: 1.125rem;
+	line-height: 1.25;
+	color: var(--primary-color-start);
+	margin-bottom: 12px;
+}
+
+.hero__title {
+	font-size: clamp(1.75rem, 5vw, 2.875rem);
+	font-weight: 600;
+	line-height: 1.2;
+	margin: 0 0 24px;
+}
+
+.hero__description {
+	font-size: 1rem;
+	line-height: 1.5;
+	opacity: 0.9;
+	margin: 0 0 32px;
+
+	@include media-mn(768) {
+		font-size: 1.125rem;
+	}
+}
+
+.hero__cta {
+	padding: 14px 44px;
+	border-radius: 6px;
+	font-size: 1rem;
+}

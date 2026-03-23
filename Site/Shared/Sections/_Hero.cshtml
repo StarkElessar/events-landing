@@ -1,0 +1,21 @@
+@model LandingViewModel
+
+@{
+	var heroStyle = !string.IsNullOrEmpty(Model.Event.HeroImageUrl)
+		? $"background-image: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%), url('{Model.Event.HeroImageUrl}')"
+		: "background-image: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%)";
+}
+
+<section class="hero" id="top" style="@heroStyle">
+	<div class="container">
+		<div class="hero__content">
+			@if (!string.IsNullOrEmpty(Model.Event.EventDates))
+			{
+				<span class="hero__meta">@Model.Event.EventDates</span>
+			}
+			<h1 class="hero__title">@Model.Event.TitlePage</h1>
+			<p class="hero__description">@Model.Event.Description</p>
+			<a class="btn btn_primary hero__cta" href="#booking">Оставить заявку</a>
+		</div>
+	</div>
+</section>

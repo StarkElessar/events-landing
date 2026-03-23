@@ -9,7 +9,18 @@
 
 // Components
 @use "components/header";
-@use "components/hero";
-@use "components/section";
-@use "components/button";
 @use "components/footer";
+@use "components/button";
+@use "components/section";
+
+// Sections
+@use "sections/hero";
+@use "sections/features";
+@use "sections/about";
+@use "sections/transfer";
+@use "sections/advantages";
+@use "sections/transport";
+@use "sections/cta";
+@use "sections/cases";
+@use "sections/process";
+@use "sections/booking";

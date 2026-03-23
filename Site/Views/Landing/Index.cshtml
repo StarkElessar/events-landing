@@ -12,47 +12,36 @@
 	                })"/>
 
 	<main class="landing__content">
-		<section class="hero">
-			<div class="container hero__inner">
-				<h1 class="hero__title">@Model.Event.TitlePage</h1>
-				<p class="hero__description">@Model.Event.Description</p>
-				<a class="btn btn_primary" href="#contacts">Заказать трансфер</a>
-			</div>
-		</section>
 
-		<section class="section" id="about">
-			<div class="container">
-				<h2 class="section__title">О трансфере</h2>
-				<p>Тип транспорта: @Model.Event.Transfer?.TransportType</p>
-				<p>Перевозчик: @Model.Event.Transfer?.Name</p>
-			</div>
-		</section>
+		<partial name="~/Shared/Sections/_Hero.cshtml" model="@Model" />
 
-		<section class="section section_alt" id="contacts">
-			<div class="container">
-				<h2 class="section__title">Контакты</h2>
-				<p>Телефон: <a href="tel:@Model.Event.ContactPhone">@Model.Event.ContactPhone</a></p>
-				<p>Email: <a href="mailto:@Model.Event.ContactEmail">@Model.Event.ContactEmail</a></p>
-				<p>Юридический адрес: @Model.Event.Transfer?.LegalAddress</p>
-				@if (!string.IsNullOrEmpty(Model.Event.Transfer?.INN))
-				{
-					<p>ИНН: @Model.Event.Transfer.INN</p>
-				}
-				@if (!string.IsNullOrEmpty(Model.Event.Transfer?.OGRN))
-				{
-					<p>ОГРН: @Model.Event.Transfer.OGRN</p>
-				}
-			</div>
-		</section>
+		<partial name="~/Shared/Sections/_Features.cshtml" />
 
-		<partial name="~/Shared/Components/Footer.cshtml"
-		         model="@(new Footer
-		                {
-			                Logo = Model.Event.BottomLogoUrl,
-			                TransferName = Model.Event.Transfer?.Name,
-			                ContactPhone = Model.Event.ContactPhone,
-			                ContactEmail = Model.Event.ContactEmail,
-			                TransferLegalAddress = Model.Event.Transfer?.LegalAddress
-		                })"/>
+		<partial name="~/Shared/Sections/_About.cshtml" model="@Model" />
+
+		<partial name="~/Shared/Sections/_Transfer.cshtml" model="@Model" />
+
+		<partial name="~/Shared/Sections/_Advantages.cshtml" model="@Model" />
+
+		<partial name="~/Shared/Sections/_Transport.cshtml" />
+
+		<partial name="~/Shared/Sections/_Cta.cshtml" />
+
+		<partial name="~/Shared/Sections/_Cases.cshtml" />
+
+		<partial name="~/Shared/Sections/_Process.cshtml" />
+
+		<partial name="~/Shared/Sections/_Booking.cshtml" model="@Model" />
+
 	</main>
+
+	<partial name="~/Shared/Components/Footer.cshtml"
+	         model="@(new Footer
+	                {
+		                Logo = Model.Event.BottomLogoUrl,
+		                TransferName = Model.Event.Transfer?.Name,
+		                ContactPhone = Model.Event.ContactPhone,
+		                ContactEmail = Model.Event.ContactEmail,
+		                TransferLegalAddress = Model.Event.Transfer?.LegalAddress
+	                })"/>
 </div>

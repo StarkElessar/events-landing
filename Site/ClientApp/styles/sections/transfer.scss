@@ -1,0 +1,102 @@
+@use "base/variables" as *;
+@use "base/mixins" as *;
+
+.transfer {
+	padding-block: 40px;
+
+	@include media-mn(768) {
+		padding-block: 60px;
+	}
+}
+
+.transfer__header {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin-bottom: 16px;
+
+	@include media-mn(768) {
+		margin-bottom: 24px;
+	}
+}
+
+.transfer__title {
+	font-size: clamp(1.75rem, 4vw, 2.625rem);
+	font-weight: 600;
+	line-height: 1.25;
+	margin: 0;
+}
+
+.transfer__brand-logo {
+	height: 28px;
+	width: auto;
+
+	@include media-mn(768) {
+		height: 34px;
+	}
+}
+
+.transfer__description {
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #4d4d4d;
+	margin: 0 0 40px;
+	max-width: 760px;
+
+	@include media-mn(768) {
+		font-size: 1.25rem;
+	}
+}
+
+.transfer__features {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 16px;
+
+	@include media-mn(576) {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	@include media-mn(1024) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.transfer-feature {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-start;
+	gap: 16px;
+	padding: 24px;
+	background-color: #f5f5f5;
+	border-radius: 20px;
+}
+
+.transfer-feature__icon {
+	width: 46px;
+	height: 46px;
+	background-color: var(--brand-color-start);
+	border-radius: 8px;
+	flex-shrink: 0;
+}
+
+.transfer-feature__content {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	flex: 1;
+}
+
+.transfer-feature__title {
+	font-size: 1.125rem;
+	font-weight: 600;
+	line-height: 1.25;
+	margin: 0;
+}
+
+.transfer-feature__text {
+	font-size: 0.9375rem;
+	line-height: 1.4;
+	color: #4d4d4d;
+	margin: 0;
+}
