@@ -2,17 +2,25 @@
 
 <header class="header">
 	<div class="container header__inner">
-		@if (string.IsNullOrEmpty(Model.Logo))
-		{
-			<span class="header__brand">@Model.TransferName</span>
-		}
-		else
-		{
-			<img class="header__logo" src="@Model.Logo" alt="@Model.TransferName"/>
-		}
-		<div class="header__contacts">
-			<a class="header__phone" href="tel:@Model.ContactPhone">@Model.ContactPhone</a>
-			<a class="header__email" href="mailto:@Model.ContactEmail">@Model.ContactEmail</a>
-		</div>
+		<a class="header__logo-link" href="#top">
+			@if (!string.IsNullOrEmpty(Model.Logo))
+			{
+				<img class="header__logo" src="@Model.Logo" alt="@Model.TransferName" />
+			}
+			else
+			{
+				<span class="header__brand">@Model.TransferName</span>
+			}
+		</a>
+
+		<nav class="header__nav" aria-label="Навигация по странице">
+			<a class="header__nav-item" href="#about">О мероприятии</a>
+			<a class="header__nav-item" href="#transfer">Трансфер</a>
+			<a class="header__nav-item" href="#transport">Виды транспорта</a>
+			<a class="header__nav-item" href="#cases">Кейсы</a>
+			<a class="header__nav-item" href="#stages">Этапы работы</a>
+		</nav>
+
+		<a class="btn btn_primary header__cta" href="#booking">Оставить заявку</a>
 	</div>
 </header>
