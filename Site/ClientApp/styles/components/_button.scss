@@ -22,30 +22,30 @@
 	&:active {
 		transform: translateY(0);
 	}
-}
 
-.btn_primary {
-	background: linear-gradient(135deg, var(--primary-color-start), var(--primary-color-end));
-	color: #fff;
-}
+	&_primary {
+		background: linear-gradient(135deg, var(--primary-color-start), var(--primary-color-end));
+		color: #fff;
+	}
 
-.btn_secondary {
-	background: linear-gradient(135deg, var(--brand-color-start), var(--brand-color-end));
-	color: #fff;
-}
+	&_secondary {
+		background: linear-gradient(135deg, var(--brand-color-start), var(--brand-color-end));
+		color: #fff;
+	}
 
-.btn_tertiary {
-	background: #fff;
-	color: #000;
-}
+	&_tertiary {
+		background: #fff;
+		color: #000;
+	}
 
-.btn_brand {
-	background: linear-gradient(135deg, var(--brand-color-start), var(--brand-color-end));
-	color: #fff;
-}
+	&_brand {
+		background: linear-gradient(135deg, var(--brand-color-start), var(--brand-color-end));
+		color: #fff;
+	}
 
-.btn_outline {
-	background: transparent;
-	border: 2px solid var(--brand-color-start);
-	color: var(--brand-color-start);
+	&_outline {
+		background: transparent;
+		border: 2px solid var(--brand-color-start);
+		color: var(--brand-color-start);
+	}
 }
