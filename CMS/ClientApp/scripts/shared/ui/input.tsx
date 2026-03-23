@@ -1,5 +1,5 @@
-import type { InputHTMLAttributes } from 'react';
-import { Label } from 'radix-ui';
+import type { InputHTMLAttributes } from "react";
+import { Label } from "radix-ui";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 	label: string;
@@ -15,7 +15,7 @@ export function Input({ label, name, error, className, ...props }: InputProps) {
 			<input
 				id={name}
 				name={name}
-				className={['input__field', error && 'input__field_error', className].filter(Boolean).join(' ')}
+				className={["input__field", error && "input__field_error", className].filter(Boolean).join(" ")}
 				aria-describedby={error ? `${name}-error` : undefined}
 				aria-invalid={!!error}
 				{...props}

@@ -13,22 +13,22 @@ applyTo: "**/*.scss"
 
 - Правильно:
 
-  .card {
-    &__title { ... }
-    &__body { ... }
-    &_active { ... }
-    &__box-title { ... }
-  }
+    .card {
+    &**title { ... }
+    &**body { ... }
+    &\_active { ... }
+    &\_\_box-title { ... }
+    }
 
 - Неправильно:
 
-  .card__title { ... }
-  .card__body { ... }
-  .card--active { ... }
-  .card__box-title { ... }
-  .card__box {
+    .card__title { ... }
+    .card__body { ... }
+    .card--active { ... }
+    .card__box-title { ... }
+    .card__box {
     &-title { ... }
-  }
+    }
 
 ## Инструменты и проверки
 

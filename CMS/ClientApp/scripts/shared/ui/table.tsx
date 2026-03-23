@@ -1,4 +1,4 @@
-import type { ReactNode, TdHTMLAttributes, ThHTMLAttributes, HTMLAttributes, TableHTMLAttributes } from 'react';
+import type { ReactNode, TdHTMLAttributes, ThHTMLAttributes, HTMLAttributes, TableHTMLAttributes } from "react";
 
 // ── Compound Components ───────────────────────────────────────────────────────
 
@@ -72,7 +72,7 @@ export function Table<T extends object>({ data, columns, children, ...tableProps
 						<TableRow key={i}>
 							{columns.map((col) => (
 								<TableCell key={col.key}>
-									{col.render ? col.render(row) : String((row as Record<string, unknown>)[col.key] ?? '')}
+									{col.render ? col.render(row) : String((row as Record<string, unknown>)[col.key] ?? "")}
 								</TableCell>
 							))}
 						</TableRow>
@@ -82,7 +82,11 @@ export function Table<T extends object>({ data, columns, children, ...tableProps
 		);
 	}
 
-	return <table className="table" {...tableProps}>{children}</table>;
+	return (
+		<table className="table" {...tableProps}>
+			{children}
+		</table>
+	);
 }
 
 Table.Header = TableHeader;

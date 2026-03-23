@@ -13,14 +13,14 @@ applyTo: "**/*.ts,**/*.tsx,**/*.js,**/*.jsx,**/*.scss,**/*.css,**/*.html"
 
 ## Примеры
 
-| Нельзя              | Нужно               |
-| ------------------- | ------------------- |
-| `MyComponent.tsx`   | `my-component.tsx`  |
-| `useMyHook.ts`      | `use-my-hook.ts`    |
-| `FormField.tsx`     | `form-field.tsx`    |
-| `EventsIndex.tsx`   | `events-index.tsx`  |
-| `ColorPicker.tsx`   | `color-picker.tsx`  |
-| `FileUpload.tsx`    | `file-upload.tsx`   |
+| Нельзя            | Нужно              |
+| ----------------- | ------------------ |
+| `MyComponent.tsx` | `my-component.tsx` |
+| `useMyHook.ts`    | `use-my-hook.ts`   |
+| `FormField.tsx`   | `form-field.tsx`   |
+| `EventsIndex.tsx` | `events-index.tsx` |
+| `ColorPicker.tsx` | `color-picker.tsx` |
+| `FileUpload.tsx`  | `file-upload.tsx`  |
 
 ## Исключения
 

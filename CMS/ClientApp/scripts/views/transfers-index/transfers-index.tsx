@@ -1,8 +1,8 @@
-import { usePageData } from '../../shared/hooks/use-page-data';
-import { useRoutes } from '../../shared/hooks/use-routes';
-import { buildUrl } from '../../shared/utils/build-url';
-import { Button } from '../../shared/ui/button';
-import { Table } from '../../shared/ui/table';
+import { usePageData } from "../../shared/hooks/use-page-data";
+import { useRoutes } from "../../shared/hooks/use-routes";
+import { buildUrl } from "../../shared/utils/build-url";
+import { Button } from "../../shared/ui/button";
+import { Table } from "../../shared/ui/table";
 
 interface Transfer {
 	id: number;

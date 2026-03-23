@@ -1,8 +1,8 @@
-import { usePageData } from '../../shared/hooks/use-page-data';
-import { useRoutes } from '../../shared/hooks/use-routes';
-import { buildUrl } from '../../shared/utils/build-url';
-import { Button } from '../../shared/ui/button';
-import { Table } from '../../shared/ui/table';
+import { usePageData } from "../../shared/hooks/use-page-data";
+import { useRoutes } from "../../shared/hooks/use-routes";
+import { buildUrl } from "../../shared/utils/build-url";
+import { Button } from "../../shared/ui/button";
+import { Table } from "../../shared/ui/table";
 
 interface Transfer {
 	id: number;
@@ -42,8 +42,8 @@ export function EventsIndex() {
 		<>
 			{displacedEventTitle && (
 				<div className="admin-notice">
-					<strong>Дефолтное событие сброшено:</strong> событие «{displacedEventTitle}» ранее было
-					указано по умолчанию — теперь оно сброшено.
+					<strong>Дефолтное событие сброшено:</strong> событие «{displacedEventTitle}» ранее было указано по умолчанию — теперь
+					оно сброшено.
 				</div>
 			)}
 
@@ -71,7 +71,7 @@ export function EventsIndex() {
 					{events.map((e) => (
 						<Table.Row key={e.id}>
 							<Table.Cell>{e.id}</Table.Cell>
-							<Table.Cell>{e.transfer?.name ?? '—'}</Table.Cell>
+							<Table.Cell>{e.transfer?.name ?? "—"}</Table.Cell>
 							<Table.Cell>{e.titlePage}</Table.Cell>
 							<Table.Cell>
 								<a href={landingUrl(e)} target="_blank" rel="noopener noreferrer">

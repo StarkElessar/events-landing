@@ -11,10 +11,9 @@ const __dirname = dirname(__filename);
 const baseConfig = createBaseConfig({ port: 5174 });
 
 const viewEntries = Object.fromEntries(
-	(globSync as unknown as (pattern: string, opts: { cwd: string }) => string[])(
-		'scripts/views/*/page.tsx',
-		{ cwd: __dirname },
-	).map((file: string) => [basename(dirname(file)), resolve(__dirname, file)]),
+	(globSync as unknown as (pattern: string, opts: { cwd: string }) => string[])('scripts/views/*/page.tsx', { cwd: __dirname }).map(
+		(file: string) => [basename(dirname(file)), resolve(__dirname, file)],
+	),
 );
 
 export default defineConfig({

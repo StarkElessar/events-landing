@@ -1,5 +1,5 @@
-import type { TextareaHTMLAttributes } from 'react';
-import { Label } from 'radix-ui';
+import type { TextareaHTMLAttributes } from "react";
+import { Label } from "radix-ui";
 
 interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 	label: string;
@@ -15,7 +15,7 @@ export function Textarea({ label, name, error, className, ...props }: TextareaPr
 			<textarea
 				id={name}
 				name={name}
-				className={['textarea__field', error && 'textarea__field_error', className].filter(Boolean).join(' ')}
+				className={["textarea__field", error && "textarea__field_error", className].filter(Boolean).join(" ")}
 				aria-describedby={error ? `${name}-error` : undefined}
 				aria-invalid={!!error}
 				{...props}

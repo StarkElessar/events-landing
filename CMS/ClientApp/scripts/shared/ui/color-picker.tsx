@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { HexColorPicker } from 'react-colorful';
+import { useState } from "react";
+import { HexColorPicker } from "react-colorful";
 
 interface ColorPickerProps {
 	name: string;
@@ -10,7 +10,7 @@ interface ColorPickerProps {
 
 export function ColorPicker({ name, label, value, onChange }: ColorPickerProps) {
 	const [open, setOpen] = useState(false);
-	const [color, setColor] = useState(value || '#000000');
+	const [color, setColor] = useState(value || "#000000");
 
 	const handleChange = (newColor: string) => {
 		setColor(newColor);
@@ -34,11 +34,7 @@ export function ColorPicker({ name, label, value, onChange }: ColorPickerProps) 
 				{open && (
 					<div className="color-picker__popover">
 						<HexColorPicker color={color} onChange={handleChange} />
-						<button
-							type="button"
-							className="color-picker__close"
-							onClick={() => setOpen(false)}
-						>
+						<button type="button" className="color-picker__close" onClick={() => setOpen(false)}>
 							Готово
 						</button>
 					</div>

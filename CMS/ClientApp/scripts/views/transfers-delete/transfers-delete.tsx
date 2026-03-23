@@ -1,8 +1,8 @@
-import { usePageData } from '../../shared/hooks/use-page-data';
-import { useRoutes } from '../../shared/hooks/use-routes';
-import { buildUrl } from '../../shared/utils/build-url';
-import { Button } from '../../shared/ui/button';
-import { Table } from '../../shared/ui/table';
+import { usePageData } from "../../shared/hooks/use-page-data";
+import { useRoutes } from "../../shared/hooks/use-routes";
+import { buildUrl } from "../../shared/utils/build-url";
+import { Button } from "../../shared/ui/button";
+import { Table } from "../../shared/ui/table";
 
 interface Transfer {
 	id: number;
@@ -30,14 +30,12 @@ export function TransfersDelete() {
 			</div>
 
 			<div className="card">
-				<p style={{ marginBottom: '1rem' }}>
+				<p style={{ marginBottom: "1rem" }}>
 					Вы уверены, что хотите удалить трансфер <strong>{transfer.name}</strong>?
 				</p>
-				<p style={{ color: '#c0392b', marginBottom: '1.5rem' }}>
-					Внимание: все события этого трансфера также будут удалены.
-				</p>
+				<p style={{ color: "#c0392b", marginBottom: "1.5rem" }}>Внимание: все события этого трансфера также будут удалены.</p>
 
-				<Table style={{ marginBottom: '1.5rem' }}>
+				<Table style={{ marginBottom: "1.5rem" }}>
 					<Table.Body>
 						<Table.Row>
 							<Table.Head>Название</Table.Head>
@@ -56,8 +54,10 @@ export function TransfersDelete() {
 
 				<form method="post" action={deleteUrl}>
 					<input type="hidden" name="__RequestVerificationToken" value={antiForgeryToken} />
-					<div style={{ display: 'flex', gap: '0.75rem' }}>
-						<Button type="submit" variant="danger">Удалить</Button>
+					<div style={{ display: "flex", gap: "0.75rem" }}>
+						<Button type="submit" variant="danger">
+							Удалить
+						</Button>
 						<Button variant="secondary" asChild>
 							<a href={cancelUrl}>Отмена</a>
 						</Button>

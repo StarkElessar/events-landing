@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { Button } from '../../shared/ui/button';
-import { Input } from '../../shared/ui/input';
-import { ColorPicker } from '../../shared/ui/color-picker';
-import { useRoutes } from '../../shared/hooks/use-routes';
-import { buildUrl } from '../../shared/utils/build-url';
+import { useState } from "react";
+import { Button } from "../../shared/ui/button";
+import { Input } from "../../shared/ui/input";
+import { ColorPicker } from "../../shared/ui/color-picker";
+import { useRoutes } from "../../shared/hooks/use-routes";
+import { buildUrl } from "../../shared/utils/build-url";
 
 interface TransferFormData {
 	id?: number;
@@ -31,23 +31,15 @@ interface TransferFormProps {
 	hiddenFields?: Record<string, string>;
 }
 
-export function TransferForm({
-	antiForgeryToken,
-	transfer: initialTransfer,
-	submitLabel,
-	pageTitle,
-	hiddenFields,
-}: TransferFormProps) {
+export function TransferForm({ antiForgeryToken, transfer: initialTransfer, submitLabel, pageTitle, hiddenFields }: TransferFormProps) {
 	const routes = useRoutes();
-	const formAction = initialTransfer.id
-		? buildUrl(routes.transfers.editTemplate, { id: initialTransfer.id })
-		: routes.transfers.create;
+	const formAction = initialTransfer.id ? buildUrl(routes.transfers.editTemplate, { id: initialTransfer.id }) : routes.transfers.create;
 	const cancelUrl = routes.transfers.index;
 	const [colors, setColors] = useState({
-		brandColorStart: initialTransfer.brandColorStart || '#007bff',
-		brandColorEnd: initialTransfer.brandColorEnd || '#007bff',
-		primaryColorStart: initialTransfer.primaryColorStart || '#6f42c1',
-		primaryColorEnd: initialTransfer.primaryColorEnd || '#6f42c1',
+		brandColorStart: initialTransfer.brandColorStart || "#007bff",
+		brandColorEnd: initialTransfer.brandColorEnd || "#007bff",
+		primaryColorStart: initialTransfer.primaryColorStart || "#6f42c1",
+		primaryColorEnd: initialTransfer.primaryColorEnd || "#6f42c1",
 	});
 
 	return (
@@ -59,10 +51,7 @@ export function TransferForm({
 			<div className="card">
 				<form method="post" action={formAction}>
 					<input type="hidden" name="__RequestVerificationToken" value={antiForgeryToken} />
-					{hiddenFields &&
-						Object.entries(hiddenFields).map(([k, v]) => (
-							<input key={k} type="hidden" name={k} value={v} />
-						))}
+					{hiddenFields && Object.entries(hiddenFields).map(([k, v]) => <input key={k} type="hidden" name={k} value={v} />)}
 
 					<div className="form-row">
 						<Input name="Transfer.Name" label="Название" defaultValue={initialTransfer.name} required />
@@ -132,7 +121,9 @@ export function TransferForm({
 					</div>
 
 					<div className="form-actions">
-						<Button type="submit" variant="primary">{submitLabel}</Button>
+						<Button type="submit" variant="primary">
+							{submitLabel}
+						</Button>
 						<Button variant="secondary" asChild>
 							<a href={cancelUrl}>Отмена</a>
 						</Button>

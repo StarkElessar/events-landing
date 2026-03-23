@@ -1,5 +1,5 @@
-import type { ReactNode } from 'react';
-import { Label, Select as RadixSelect } from 'radix-ui';
+import type { ReactNode } from "react";
+import { Label, Select as RadixSelect } from "radix-ui";
 
 // ── Sub-components ───────────────────────────────────────────────────────────
 
@@ -10,7 +10,7 @@ interface SelectTriggerProps {
 function SelectTrigger({ placeholder }: SelectTriggerProps) {
 	return (
 		<RadixSelect.Trigger className="select__trigger">
-			<RadixSelect.Value className="select__value" placeholder={placeholder ?? '— выберите —'} />
+			<RadixSelect.Value className="select__value" placeholder={placeholder ?? "— выберите —"} />
 			<RadixSelect.Icon className="select__icon">
 				<svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
 					<path d="M6 8L1 3h10L6 8z" />

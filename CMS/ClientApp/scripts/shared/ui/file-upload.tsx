@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback } from "react";
 
 interface FileUploadProps {
 	name: string;
@@ -8,14 +8,14 @@ interface FileUploadProps {
 }
 
 export function FileUpload({ name, label, currentUrl, uploadEndpoint }: FileUploadProps) {
-	const [url, setUrl] = useState<string>(currentUrl ?? '');
+	const [url, setUrl] = useState<string>(currentUrl ?? "");
 	const [uploading, setUploading] = useState(false);
 	const [error, setError] = useState<string | null>(null);
 
 	const upload = useCallback(
 		async (file: File) => {
 			if (file.size > 5 * 1024 * 1024) {
-				setError('Файл слишком большой (максимум 5 МБ)');
+				setError("Файл слишком большой (максимум 5 МБ)");
 				return;
 			}
 
@@ -23,18 +23,16 @@ export function FileUpload({ name, label, currentUrl, uploadEndpoint }: FileUplo
 			setUploading(true);
 
 			const formData = new FormData();
-			formData.append('file', file);
+			formData.append("file", file);
 
 			try {
-				const res = await fetch(uploadEndpoint, { method: 'POST', body: formData });
+				const res = await fetch(uploadEndpoint, { method: "POST", body: formData });
 				if (!res.ok) throw new Error(await res.text());
 				const json = (await res.json()) as { url: string };
 				setUrl(json.url);
-			} 
-            catch {
-				setError('Ошибка загрузки файла');
-			} 
-            finally {
+			} catch {
+				setError("Ошибка загрузки файла");
+			} finally {
 				setUploading(false);
 			}
 		},
@@ -52,7 +50,7 @@ export function FileUpload({ name, label, currentUrl, uploadEndpoint }: FileUplo
 		if (file) upload(file);
 	};
 
-	const handleRemove = () => setUrl('');
+	const handleRemove = () => setUrl("");
 
 	return (
 		<div className="file-upload">
@@ -67,7 +65,7 @@ export function FileUpload({ name, label, currentUrl, uploadEndpoint }: FileUplo
 				onDrop={handleDrop}
 				onDragOver={(e) => e.preventDefault()}
 				onClick={() => document.getElementById(`file-input-${name}`)?.click()}
-				onKeyDown={(e) => e.key === 'Enter' && document.getElementById(`file-input-${name}`)?.click()}
+				onKeyDown={(e) => e.key === "Enter" && document.getElementById(`file-input-${name}`)?.click()}
 			>
 				{url ? (
 					<div className="file-upload__preview">
@@ -76,7 +74,7 @@ export function FileUpload({ name, label, currentUrl, uploadEndpoint }: FileUplo
 				) : (
 					<div className="file-upload__placeholder">
 						<span className="file-upload__icon">↑</span>
-						<span>{uploading ? 'Загружается…' : 'Перетащите файл или нажмите для выбора'}</span>
+						<span>{uploading ? "Загружается…" : "Перетащите файл или нажмите для выбора"}</span>
 						<small>JPG, PNG, SVG, WebP — до 5 МБ</small>
 					</div>
 				)}
@@ -87,7 +85,7 @@ export function FileUpload({ name, label, currentUrl, uploadEndpoint }: FileUplo
 				type="file"
 				accept="image/*"
 				className="file-upload__input"
-				style={{ display: 'none' }}
+				style={{ display: "none" }}
 				onChange={handleFileChange}
 			/>
 

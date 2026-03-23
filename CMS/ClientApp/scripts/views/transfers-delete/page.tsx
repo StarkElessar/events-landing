@@ -1,4 +1,4 @@
-import { createRoot } from 'react-dom/client';
-import { TransfersDelete } from './transfers-delete';
+import { createRoot } from "react-dom/client";
+import { TransfersDelete } from "./transfers-delete";
 
-createRoot(document.getElementById('app')!).render(<TransfersDelete />);
+createRoot(document.getElementById("app")!).render(<TransfersDelete />);

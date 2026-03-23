@@ -1,12 +1,12 @@
-import { useState } from 'react';
-import { Button } from '../../shared/ui/button';
-import { Input } from '../../shared/ui/input';
-import { Textarea } from '../../shared/ui/textarea';
-import { Select } from '../../shared/ui/select';
-import { FileUpload } from '../../shared/ui/file-upload';
-import { ColorPicker } from '../../shared/ui/color-picker';
-import { useRoutes } from '../../shared/hooks/use-routes';
-import { buildUrl } from '../../shared/utils/build-url';
+import { useState } from "react";
+import { Button } from "../../shared/ui/button";
+import { Input } from "../../shared/ui/input";
+import { Textarea } from "../../shared/ui/textarea";
+import { Select } from "../../shared/ui/select";
+import { FileUpload } from "../../shared/ui/file-upload";
+import { ColorPicker } from "../../shared/ui/color-picker";
+import { useRoutes } from "../../shared/hooks/use-routes";
+import { buildUrl } from "../../shared/utils/build-url";
 
 interface TransferOption {
 	id: number;
@@ -51,22 +51,20 @@ export function EventForm({
 	hiddenFields,
 }: EventFormProps) {
 	const routes = useRoutes();
-	const formAction = initialEvent.id
-		? buildUrl(routes.events.editTemplate, { id: initialEvent.id })
-		: routes.events.create;
+	const formAction = initialEvent.id ? buildUrl(routes.events.editTemplate, { id: initialEvent.id }) : routes.events.create;
 	const cancelUrl = routes.events.index;
 	const uploadEndpoint = routes.uploadEndpoint;
 	const selectedTransfer = transfers.find((t) => t.id === initialEvent.transferId);
-	const landingBase = siteBaseUrl ?? (selectedTransfer ? `https://${selectedTransfer.domain}` : '');
+	const landingBase = siteBaseUrl ?? (selectedTransfer ? `https://${selectedTransfer.domain}` : "");
 
 	const [brandInherit, setBrandInherit] = useState(!initialEvent.brandColorStart);
 	const [primaryInherit, setPrimaryInherit] = useState(!initialEvent.primaryColorStart);
 
 	const [colors, setColors] = useState({
-		brandColorStart: initialEvent.brandColorStart || '#007bff',
-		brandColorEnd: initialEvent.brandColorEnd || '#007bff',
-		primaryColorStart: initialEvent.primaryColorStart || '#6f42c1',
-		primaryColorEnd: initialEvent.primaryColorEnd || '#6f42c1',
+		brandColorStart: initialEvent.brandColorStart || "#007bff",
+		brandColorEnd: initialEvent.brandColorEnd || "#007bff",
+		primaryColorStart: initialEvent.primaryColorStart || "#6f42c1",
+		primaryColorEnd: initialEvent.primaryColorEnd || "#6f42c1",
 	});
 
 	return (
@@ -85,12 +83,9 @@ export function EventForm({
 			<div className="card">
 				<form method="post" action={formAction}>
 					<input type="hidden" name="__RequestVerificationToken" value={antiForgeryToken} />
-					{hiddenFields &&
-						Object.entries(hiddenFields).map(([k, v]) => (
-							<input key={k} type="hidden" name={k} value={v} />
-						))}
+					{hiddenFields && Object.entries(hiddenFields).map(([k, v]) => <input key={k} type="hidden" name={k} value={v} />)}
 
-					<Select name="Event.TransferId" label="Трансфер" defaultValue={String(initialEvent.transferId || '')} required>
+					<Select name="Event.TransferId" label="Трансфер" defaultValue={String(initialEvent.transferId || "")} required>
 						<Select.Trigger placeholder="— выберите —" />
 						<Select.Content>
 							{transfers.map((t) => (
@@ -111,10 +106,8 @@ export function EventForm({
 					<Textarea name="Event.Description" label="SEO Description" defaultValue={initialEvent.description} required />
 
 					<h3 className="form-section-title">
-						Переопределение дизайна{' '}
-						<small style={{ fontWeight: 400, color: '#999' }}>
-							(оставьте пустым для наследования от трансфера)
-						</small>
+						Переопределение дизайна{" "}
+						<small style={{ fontWeight: 400, color: "#999" }}>(оставьте пустым для наследования от трансфера)</small>
 					</h3>
 
 					<div className="form-row">
@@ -155,13 +148,9 @@ export function EventForm({
 								<input type="hidden" name="Event.BrandColorEnd" value="" />
 							</>
 						)}
-						<div className="form-group" style={{ paddingTop: '1.5rem' }}>
+						<div className="form-group" style={{ paddingTop: "1.5rem" }}>
 							<label>
-								<input
-									type="checkbox"
-									checked={brandInherit}
-									onChange={(e) => setBrandInherit(e.target.checked)}
-								/>{' '}
+								<input type="checkbox" checked={brandInherit} onChange={(e) => setBrandInherit(e.target.checked)} />{" "}
 								Наследовать от трансфера
 							</label>
 						</div>
@@ -190,45 +179,33 @@ export function EventForm({
 								<input type="hidden" name="Event.PrimaryColorEnd" value="" />
 							</>
 						)}
-						<div className="form-group" style={{ paddingTop: '1.5rem' }}>
+						<div className="form-group" style={{ paddingTop: "1.5rem" }}>
 							<label>
-								<input
-									type="checkbox"
-									checked={primaryInherit}
-									onChange={(e) => setPrimaryInherit(e.target.checked)}
-								/>{' '}
+								<input type="checkbox" checked={primaryInherit} onChange={(e) => setPrimaryInherit(e.target.checked)} />{" "}
 								Наследовать от трансфера
 							</label>
 						</div>
 					</div>
 
-					<div className="form-row" style={{ marginTop: '1.5rem' }}>
+					<div className="form-row" style={{ marginTop: "1.5rem" }}>
 						<div className="form-group">
 							<label>
-								<input
-									type="checkbox"
-									name="Event.IsPublished"
-									defaultChecked={initialEvent.isPublished}
-									value="true"
-								/>{' '}
+								<input type="checkbox" name="Event.IsPublished" defaultChecked={initialEvent.isPublished} value="true" />{" "}
 								Опубликовано
 							</label>
 						</div>
 						<div className="form-group">
 							<label>
-								<input
-									type="checkbox"
-									name="Event.IsDefault"
-									defaultChecked={initialEvent.isDefault}
-									value="true"
-								/>{' '}
-								По умолчанию
+								<input type="checkbox" name="Event.IsDefault" defaultChecked={initialEvent.isDefault} value="true" /> По
+								умолчанию
 							</label>
 						</div>
 					</div>
 
 					<div className="form-actions">
-						<Button type="submit" variant="primary">{submitLabel}</Button>
+						<Button type="submit" variant="primary">
+							{submitLabel}
+						</Button>
 						<Button variant="secondary" asChild>
 							<a href={cancelUrl}>← События</a>
 						</Button>
