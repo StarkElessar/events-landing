@@ -116,9 +116,19 @@ applyTo: "**/*.scss"
 
 ## Инструменты и проверки
 
-- Используется `stylelint` с плагином `stylelint-scss` и конфигом `stylelint-config-standard-scss`.
-- Правила поощряют вложения и пустые строки перед top-level правилами для улучшения читаемости.
-- Отключено `alpha-value-notation` — дробные значения (0.3, 0.9) приниматься как есть без преобразования в проценты.
-- Отключено `color-function-notation` — допускается как старая `rgba()` синтаксис (например `rgba(255, 255, 255, 0.5)`), так и современная CSS4 слеш-нотация (например `rgb(255 255 255 / 0.5)`). Выбирайте удобный вам стиль, главное — консистентность в пределах одного файла или раздела.
+- Используется `stylelint` (v16+) с плагинами `stylelint-scss` и `@stylistic/stylelint-plugin`, конфигом `stylelint-config-standard-scss`.
+- Конфиг stylelint настроен в обоих проектах: `Site/ClientApp/.stylelintrc.json` и `CMS/ClientApp/.stylelintrc.json`.
+- `@stylistic/indentation: tab` — контролирует отступы табами. Поддерживает автоисправление через `--fix`.
+- `selector-class-pattern` — BEM-паттерн `.block__element_modifier` (разделитель элемента `__`, модификатора `_`).
+- Отключено `alpha-value-notation` — дробные значения (0.3, 0.9) принимаются как есть без преобразования в проценты.
+- Отключено `color-function-notation` — допускается как `rgba()`, так и современная CSS4 слеш-нотация `rgb(255 255 255 / 0.5)`.
+- Отключено `declaration-block-no-redundant-longhand-properties` — позволяет переопределять только часть shorthand-свойств (например `row-gap` при mobile-first подходе).
 - Исключения: генерируемые/внешние CSS-файлы и библиотеки в `ClientApp/styles/libs`.
 - Файлы `.scss` не форматируются Prettier (см. `.prettierignore`).
+
+### Команды
+
+```bash
+pnpm run lint:scss       # проверить SCSS
+pnpm run lint:scss:fix   # автоисправление (отступы, пустые строки и т.п.)
+```
