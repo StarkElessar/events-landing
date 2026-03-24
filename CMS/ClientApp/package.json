@@ -4,14 +4,20 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
-		"build": "vite build"
+		"build": "vite build",
+		"lint:scss": "stylelint '**/*.scss' --config .stylelintrc.json",
+		"lint:scss:fix": "stylelint '**/*.scss' --config .stylelintrc.json --fix"
 	},
 	"devDependencies": {
 		"@events-landing/core": "workspace:*",
+		"@stylistic/stylelint-plugin": "^3.0.0",
 		"@types/react": "^19.1.0",
 		"@types/react-dom": "^19.1.0",
 		"@vitejs/plugin-react": "^6.0.1",
 		"sass": "^1.98.0",
+		"stylelint": "^16.8.0",
+		"stylelint-config-standard-scss": "^13.0.0",
+		"stylelint-scss": "^6.0.0",
 		"typescript": "^5.9.3",
 		"vite": "^8.0.1"
 	},
