@@ -9,110 +9,127 @@
 	@include media-mn(768) {
 		padding-block: 120px;
 	}
-}
 
-.booking__title {
-	font-size: clamp(1.75rem, 4vw, 2.625rem);
-	font-weight: 600;
-	line-height: 1.25;
-	margin: 0 0 32px;
+	&__title {
+		font-size: clamp(1.75rem, 4vw, 2.625rem);
+		font-weight: 600;
+		line-height: 1.25;
+		margin: 0 0 32px;
 
-	@include media-mn(768) {
-		margin-bottom: 40px;
-	}
-}
-
-.booking__inner {
-	display: flex;
-	flex-direction: column;
-	gap: 32px;
-
-	@include media-mn(1024) {
-		flex-direction: row;
-		align-items: flex-start;
-		gap: 40px;
-	}
-}
-
-.booking__form-wrap {
-	display: flex;
-	flex-direction: column;
-	gap: 20px;
-	flex: 1;
-}
-
-.booking__description {
-	font-size: 1rem;
-	line-height: 1.5;
-	opacity: 0.9;
-	margin: 0;
-
-	@include media-mn(768) {
-		font-size: 1.125rem;
-	}
-}
-
-.booking__form {
-	display: flex;
-	flex-direction: column;
-	gap: 16px;
-}
-
-.booking__field {
-	display: flex;
-	flex-direction: column;
-	gap: 4px;
-}
-
-.booking__label {
-	font-size: 0.875rem;
-	font-weight: 600;
-	opacity: 0.9;
-}
-
-.booking__input,
-.booking__textarea {
-	padding: 12px 16px;
-	border: none;
-	border-radius: 6px;
-	background-color: color-mix(in srgb, var(--primary-color-start) 70%, black);
-	color: #fff;
-	font-family: inherit;
-	font-size: 1rem;
-	line-height: 1.5;
-	outline: none;
-	transition: background-color $transition-fast;
-
-	&::placeholder {
-		color: rgba(255, 255, 255, 0.5);
+		@include media-mn(768) {
+			margin-bottom: 40px;
+		}
 	}
 
-	&:focus {
-		background-color: color-mix(in srgb, var(--primary-color-start) 60%, black);
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+
+		@include media-mn(1024) {
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 40px;
+		}
 	}
-}
 
-.booking__textarea {
-	resize: vertical;
-	min-height: 120px;
-}
+	&__form-wrap {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		flex: 1;
+	}
 
-.booking__submit {
-	align-self: flex-start;
-	padding: 14px 44px;
-	border-radius: 6px;
-	font-size: 1rem;
-}
+	&__description {
+		font-size: 1rem;
+		line-height: 1.5;
+		opacity: 0.9;
+		margin: 0;
 
-.booking__image {
-	aspect-ratio: 3 / 2;
-	background-color: rgba(255, 255, 255, 0.1);
-	border-radius: 6px;
-	overflow: hidden;
-	flex: 1;
+		@include media-mn(768) {
+			font-size: 1.125rem;
+		}
+	}
 
-	@include media-mn(1024) {
-		aspect-ratio: unset;
-		min-height: 378px;
+	&__form {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+
+	&__field {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+	}
+
+	&__label {
+		font-size: 0.875rem;
+		font-weight: 600;
+		opacity: 0.9;
+	}
+
+	&__input {
+		padding: 12px 16px;
+		border: none;
+		border-radius: 6px;
+		background-color: color-mix(in srgb, var(--primary-color-start) 70%, black);
+		color: #fff;
+		font-family: inherit;
+		font-size: 1rem;
+		line-height: 1.5;
+		outline: none;
+		transition: background-color $transition-fast;
+
+		&::placeholder {
+			color: rgba(255, 255, 255, 0.5);
+		}
+
+		&:focus {
+			background-color: color-mix(in srgb, var(--primary-color-start) 60%, black);
+		}
+	}
+
+	&__textarea {
+		padding: 12px 16px;
+		border: none;
+		border-radius: 6px;
+		background-color: color-mix(in srgb, var(--primary-color-start) 70%, black);
+		color: #fff;
+		font-family: inherit;
+		font-size: 1rem;
+		line-height: 1.5;
+		outline: none;
+		transition: background-color $transition-fast;
+		resize: vertical;
+		min-height: 120px;
+
+		&::placeholder {
+			color: rgba(255, 255, 255, 0.5);
+		}
+
+		&:focus {
+			background-color: color-mix(in srgb, var(--primary-color-start) 60%, black);
+		}
+	}
+
+	&__submit {
+		align-self: flex-start;
+		padding: 14px 44px;
+		border-radius: 6px;
+		font-size: 1rem;
+	}
+
+	&__image {
+		aspect-ratio: 3 / 2;
+		background-color: rgba(255, 255, 255, 0.1);
+		border-radius: 6px;
+		overflow: hidden;
+		flex: 1;
+
+		@include media-mn(1024) {
+			aspect-ratio: unset;
+			min-height: 378px;
+		}
 	}
 }

@@ -20,36 +20,36 @@ body {
 	color: #fff;
 	padding: 1.5rem 0;
 	flex-shrink: 0;
-}
 
-.admin-sidebar__title {
-	padding: 0 1.5rem;
-	font-size: 1rem;
-	font-weight: 700;
-	margin-bottom: 1.5rem;
-	opacity: 0.6;
-	text-transform: uppercase;
-	letter-spacing: 0.05em;
+	&__title {
+		padding: 0 1.5rem;
+		font-size: 1rem;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+		opacity: 0.6;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
 }
 
 .admin-nav {
 	list-style: none;
-}
 
-.admin-nav__link {
-	display: block;
-	padding: 0.75rem 1.5rem;
-	color: rgba(255, 255, 255, 0.7);
-	text-decoration: none;
-	transition:
-		background 150ms,
-		color 150ms;
-}
+	&__link {
+		display: block;
+		padding: 0.75rem 1.5rem;
+		color: rgba(255, 255, 255, 0.7);
+		text-decoration: none;
+		transition:
+			background 150ms,
+			color 150ms;
 
-.admin-nav__link:hover,
-.admin-nav__link_active {
-	background: rgba(255, 255, 255, 0.1);
-	color: #fff;
+		&:hover,
+		&_active {
+			background: rgba(255, 255, 255, 0.1);
+			color: #fff;
+		}
+	}
 }
 
 .admin-main {
@@ -62,10 +62,10 @@ body {
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 1.5rem;
-}
 
-.admin-header h1 {
-	font-size: 1.5rem;
+	h1 {
+		font-size: 1.5rem;
+	}
 }
 
 table {
@@ -102,51 +102,51 @@ th {
 	cursor: pointer;
 	border: none;
 	transition: opacity 150ms;
-}
 
-.admin-btn:hover {
-	opacity: 0.85;
-}
+	&:hover {
+		opacity: 0.85;
+	}
 
-.admin-btn_primary {
-	background: #1a73e8;
-	color: #fff;
-}
+	&_primary {
+		background: #1a73e8;
+		color: #fff;
+	}
 
-.admin-btn_danger {
-	background: #e53e3e;
-	color: #fff;
-}
+	&_danger {
+		background: #e53e3e;
+		color: #fff;
+	}
 
-.admin-btn_secondary {
-	background: #e2e8f0;
-	color: #1a1a2e;
-}
+	&_secondary {
+		background: #e2e8f0;
+		color: #1a1a2e;
+	}
 
-.admin-btn_sm {
-	padding: 0.35rem 0.75rem;
-	font-size: 0.8rem;
+	&_sm {
+		padding: 0.35rem 0.75rem;
+		font-size: 0.8rem;
+	}
 }
 
 .form-group {
 	margin-bottom: 1rem;
-}
 
-.form-group label {
-	display: block;
-	margin-bottom: 0.25rem;
-	font-weight: 500;
-	font-size: 0.875rem;
-}
+	label {
+		display: block;
+		margin-bottom: 0.25rem;
+		font-weight: 500;
+		font-size: 0.875rem;
+	}
 
-.form-group input,
-.form-group textarea,
-.form-group select {
-	width: 100%;
-	padding: 0.5rem 0.75rem;
-	border: 1px solid #ddd;
-	border-radius: 6px;
-	font-size: 0.875rem;
+	input,
+	textarea,
+	select {
+		width: 100%;
+		padding: 0.5rem 0.75rem;
+		border: 1px solid #ddd;
+		border-radius: 6px;
+		font-size: 0.875rem;
+	}
 }
 
 .form-group input:focus,

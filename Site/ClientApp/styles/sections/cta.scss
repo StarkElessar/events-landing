@@ -13,38 +13,38 @@
 	@include media-mn(768) {
 		padding-block: 120px;
 	}
-}
 
-.cta__content {
-	max-width: 760px;
-	margin-inline: auto;
-	padding-inline: $container-padding;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	gap: 24px;
-}
-
-.cta__title {
-	font-size: clamp(1.75rem, 4vw, 2.625rem);
-	font-weight: 600;
-	line-height: 1.25;
-	margin: 0;
-}
-
-.cta__text {
-	font-size: 1rem;
-	line-height: 1.5;
-	opacity: 0.9;
-	margin: 0;
-
-	@include media-mn(768) {
-		font-size: 1.25rem;
+	&__content {
+		max-width: 760px;
+		margin-inline: auto;
+		padding-inline: $container-padding;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 24px;
 	}
-}
 
-.cta__btn {
-	padding: 14px 44px;
-	border-radius: 6px;
-	font-size: 1rem;
+	&__title {
+		font-size: clamp(1.75rem, 4vw, 2.625rem);
+		font-weight: 600;
+		line-height: 1.25;
+		margin: 0;
+	}
+
+	&__text {
+		font-size: 1rem;
+		line-height: 1.5;
+		opacity: 0.9;
+		margin: 0;
+
+		@include media-mn(768) {
+			font-size: 1.25rem;
+		}
+	}
+
+	&__btn {
+		padding: 14px 44px;
+		border-radius: 6px;
+		font-size: 1rem;
+	}
 }

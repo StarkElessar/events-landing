@@ -7,89 +7,89 @@
 	@include media-mn(768) {
 		padding-block: 60px 120px;
 	}
-}
 
-.process__title {
-	font-size: clamp(1.75rem, 4vw, 2.625rem);
-	font-weight: 600;
-	line-height: 1.25;
-	margin: 0 0 32px;
+	&__title {
+		font-size: clamp(1.75rem, 4vw, 2.625rem);
+		font-weight: 600;
+		line-height: 1.25;
+		margin: 0 0 32px;
 
-	@include media-mn(768) {
-		margin-bottom: 40px;
+		@include media-mn(768) {
+			margin-bottom: 40px;
+		}
 	}
-}
 
-.process__timeline {
-	display: flex;
-	flex-direction: column;
-	gap: 24px;
-}
-
-.process__track {
-	display: flex;
-	align-items: center;
-	gap: 0;
-}
-
-.process__dot {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	background-color: var(--primary-color-start);
-	color: #fff;
-	font-weight: 600;
-	font-size: 1.125rem;
-	line-height: 1;
-	flex-shrink: 0;
-
-	@include media-mn(768) {
-		width: 48px;
-		height: 48px;
-		font-size: 1.25rem;
+	&__timeline {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
 	}
-}
 
-.process__line {
-	flex: 1;
-	height: 2px;
-	background-color: #e0e0e0;
-}
-
-.process__steps {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 24px 16px;
-
-	@include media-mn(768) {
-		grid-template-columns: repeat(4, 1fr);
-		gap: 16px;
+	&__track {
+		display: flex;
+		align-items: center;
+		gap: 0;
 	}
-}
 
-.process__step {
-	display: flex;
-	flex-direction: column;
-	gap: 8px;
-}
-
-.process__step-title {
-	font-weight: 600;
-	font-size: 1rem;
-	line-height: 1.25;
-	margin: 0;
-
-	@include media-mn(768) {
+	&__dot {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background-color: var(--primary-color-start);
+		color: #fff;
+		font-weight: 600;
 		font-size: 1.125rem;
-	}
-}
+		line-height: 1;
+		flex-shrink: 0;
 
-.process__step-text {
-	font-size: 0.9375rem;
-	line-height: 1.5;
-	color: #4d4d4d;
-	margin: 0;
+		@include media-mn(768) {
+			width: 48px;
+			height: 48px;
+			font-size: 1.25rem;
+		}
+	}
+
+	&__line {
+		flex: 1;
+		height: 2px;
+		background-color: #e0e0e0;
+	}
+
+	&__steps {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 24px 16px;
+
+		@include media-mn(768) {
+			grid-template-columns: repeat(4, 1fr);
+			gap: 16px;
+		}
+	}
+
+	&__step {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	&__step-title {
+		font-weight: 600;
+		font-size: 1rem;
+		line-height: 1.25;
+		margin: 0;
+
+		@include media-mn(768) {
+			font-size: 1.125rem;
+		}
+	}
+
+	&__step-text {
+		font-size: 0.9375rem;
+		line-height: 1.5;
+		color: #4d4d4d;
+		margin: 0;
+	}
 }

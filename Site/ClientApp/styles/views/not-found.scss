@@ -103,129 +103,129 @@ $btn-bg-hover: #e02090;
 	justify-content: center;
 	overflow: hidden;
 	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
 
-// ---- Stars ----
+	// ---- Stars ----
 
-.not-found__stars {
-	position: absolute;
-	inset: 0;
-	pointer-events: none;
-}
-
-.not-found__star {
-	position: absolute;
-	width: 2px;
-	height: 2px;
-	background: $star-color;
-	border-radius: 50%;
-	animation: twinkle 3s ease-in-out infinite;
-
-	@for $i from 1 through 20 {
-		&:nth-child(#{$i}) {
-			top: math.random(100) * 1%;
-			left: math.random(100) * 1%;
-			width: (math.random(3)) * 1px;
-			height: (math.random(3)) * 1px;
-			animation-delay: math.random(4000) * 1ms;
-			animation-duration: (2 + math.random(3)) * 1s;
-		}
-	}
-}
-
-// ---- Content ----
-
-.not-found__content {
-	position: relative;
-	z-index: 1;
-	text-align: center;
-	padding: v.$spacing-xl;
-}
-
-// ---- Glitch number ----
-
-.not-found__glitch {
-	position: relative;
-	display: inline-block;
-	font-size: clamp(7rem, 20vw, 14rem);
-	font-weight: 900;
-	line-height: 1;
-	color: $text-color;
-	letter-spacing: -0.04em;
-	user-select: none;
-
-	&::before,
-	&::after {
-		content: attr(data-text);
+	&__stars {
 		position: absolute;
 		inset: 0;
-		font-size: inherit;
-		font-weight: inherit;
-		line-height: inherit;
+		pointer-events: none;
 	}
 
-	&::before {
-		color: $glitch-color-1;
-		animation: glitch-clip-1 2.5s steps(1) infinite;
+	&__star {
+		position: absolute;
+		width: 2px;
+		height: 2px;
+		background: $star-color;
+		border-radius: 50%;
+		animation: twinkle 3s ease-in-out infinite;
+
+		@for $i from 1 through 20 {
+			&:nth-child(#{$i}) {
+				top: math.random(100) * 1%;
+				left: math.random(100) * 1%;
+				width: (math.random(3)) * 1px;
+				height: (math.random(3)) * 1px;
+				animation-delay: math.random(4000) * 1ms;
+				animation-duration: (2 + math.random(3)) * 1s;
+			}
+		}
 	}
 
-	&::after {
-		color: $glitch-color-2;
-		animation: glitch-clip-2 2.5s steps(1) infinite 0.1s;
-	}
-}
+	// ---- Content ----
 
-// ---- Text ----
-
-.not-found__title {
-	margin-top: v.$spacing-lg;
-	font-size: clamp(1.25rem, 3vw, 1.75rem);
-	font-weight: 700;
-	color: $text-color;
-}
-
-.not-found__subtitle {
-	margin-top: v.$spacing-md;
-	max-width: 480px;
-	margin-inline: auto;
-	font-size: 1rem;
-	line-height: 1.6;
-	color: rgba($text-color, 0.6);
-}
-
-// ---- Button ----
-
-.not-found__btn {
-	display: inline-block;
-	margin-top: v.$spacing-xl;
-	padding: v.$spacing-md v.$spacing-2xl;
-	background: $btn-bg;
-	color: #fff;
-	font-size: 1rem;
-	font-weight: 600;
-	text-decoration: none;
-	border-radius: 100px;
-	transition:
-		background 200ms ease,
-		transform 200ms ease;
-
-	&:hover {
-		background: $btn-bg-hover;
-		transform: translateY(-2px);
+	&__content {
+		position: relative;
+		z-index: 1;
+		text-align: center;
+		padding: v.$spacing-xl;
 	}
 
-	&:active {
-		transform: translateY(0);
+	// ---- Glitch number ----
+
+	&__glitch {
+		position: relative;
+		display: inline-block;
+		font-size: clamp(7rem, 20vw, 14rem);
+		font-weight: 900;
+		line-height: 1;
+		color: $text-color;
+		letter-spacing: -0.04em;
+		user-select: none;
+
+		&::before,
+		&::after {
+			content: attr(data-text);
+			position: absolute;
+			inset: 0;
+			font-size: inherit;
+			font-weight: inherit;
+			line-height: inherit;
+		}
+
+		&::before {
+			color: $glitch-color-1;
+			animation: glitch-clip-1 2.5s steps(1) infinite;
+		}
+
+		&::after {
+			color: $glitch-color-2;
+			animation: glitch-clip-2 2.5s steps(1) infinite 0.1s;
+		}
 	}
-}
 
-// ---- Floating rocket ----
+	// ---- Text ----
 
-.not-found__rocket {
-	position: absolute;
-	bottom: 10%;
-	right: 8%;
-	font-size: clamp(3rem, 6vw, 5rem);
-	animation: drift 6s ease-in-out infinite;
-	line-height: 1;
+	&__title {
+		margin-top: v.$spacing-lg;
+		font-size: clamp(1.25rem, 3vw, 1.75rem);
+		font-weight: 700;
+		color: $text-color;
+	}
+
+	&__subtitle {
+		margin-top: v.$spacing-md;
+		max-width: 480px;
+		margin-inline: auto;
+		font-size: 1rem;
+		line-height: 1.6;
+		color: rgba($text-color, 0.6);
+	}
+
+	// ---- Button ----
+
+	&__btn {
+		display: inline-block;
+		margin-top: v.$spacing-xl;
+		padding: v.$spacing-md v.$spacing-2xl;
+		background: $btn-bg;
+		color: #fff;
+		font-size: 1rem;
+		font-weight: 600;
+		text-decoration: none;
+		border-radius: 100px;
+		transition:
+			background 200ms ease,
+			transform 200ms ease;
+
+		&:hover {
+			background: $btn-bg-hover;
+			transform: translateY(-2px);
+		}
+
+		&:active {
+			transform: translateY(0);
+		}
+	}
+
+	// ---- Floating rocket ----
+
+	&__rocket {
+		position: absolute;
+		bottom: 10%;
+		right: 8%;
+		font-size: clamp(3rem, 6vw, 5rem);
+		animation: drift 6s ease-in-out infinite;
+		line-height: 1;
+	}
 }
